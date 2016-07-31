@@ -1,0 +1,135 @@
+\documentclass[12pt, oneside]{article}
+\usepackage[margin=1in]{geometry}                		
+\geometry{letterpaper}   
+\newcommand\NoIndent[1]{%
+  \par\vbox{\parbox[t]{\linewidth}{#1}}%
+}    
+\usepackage{enumitem}            	
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+\usepackage{fancyheadings}
+\pagestyle{fancy}
+\lhead {SESYNC Bayesian Short Course}
+\rhead{August 19-28, 2015}
+
+\title{Short Course: Bayesian Modeling for \\
+Ecologists and Social Scientists}
+\author{N. Thompson Hobbs, Mary B. Collins, and Christian Che-Castaldo}
+\date{August 1-10, 2016}	
+\begin{document}
+\maketitle
+
+\section*{Course preparation}
+\begin{itemize}
+\item Consider studying chapters 1-5 in ``Bayesian Models: A Statistical Primer for Ecologists," by Hobbs and Hooten, in preparation for the course.  We will cover these materials at the start of the course.
+%\item Did we decide to ask participants to come up with analysis ideas?
+\end{itemize}
+
+\section*{General logistics}
+\begin{itemize}
+\item{Each day the course will begin at 9am and end at 5pm.}
+\item{Coffee will be provided throughout the day by SESYNC.}
+\item{Each day, SESYNC will provide various snacks around 10:30am and 3:30pm. Some days we will plan to break, other days you can feel free to grab a snack during our lab activities if you need it.}
+\item{Each day we will break from 12:30 to 1:30 for lunch, which will be provided by SESYNC.}
+%\item{SESYNC has set our course up with a listserve, feel free to use it. \\
+%bayescourse@lists.sesync.org}
+%\item{SESYNC has set our course up with a collaborative website. This is where you will find all of the course materials including, lecture slides, lab materials, and suggesting readings.  The site address is \href{http://sesync.us/bayescouse}{http://sesync.us/bayescouse}.  You should have already received login instructions from the SESYNC compute staff.}  
+\item{Course materials can be printed at SESYNC if desired.  There is a computer with printer access in the common area.}
+\end{itemize}
+\pagebreak
+\noindent
+
+
+\subsection*{Day 1: What Sets Bayes' Apart} (Mon Aug 1, 2016) \\
+\textbf{Reading}: Hobbs and Hooten---Preface and Chapter 1-2\\
+Introductions, compute overview (30 min total) \\
+\textbf{Lectures}: \\
+(1) Broad course overview (\emph{Hobbs})\\
+(2) What sets Bayes' apart?  (\emph{Hobbs})\\
+(3) Laws of probability (\emph{Collins})\\
+\textbf{Labs}: \\
+(1) Confidence intervals.\\
+(2) DAGs and Marginal Distributions\\
+\emph{Happy Hour at SESYNC}
+
+
+\subsection*{Day 2: Introduction to Probability and Maximum Likelihood} (Tues Aug 2, 2016)\\
+\textbf{Reading}: Hobbs and Hooten, Chapter 3\\
+\textbf{Lectures}: \\
+(1) Probability distributions  (\emph{Hobbs})\\
+(2) Maximum likelihood (\emph{Collins})\\
+\textbf{Labs}: \\
+(1) Distributions lab\\
+(2) Light limitation of trees\\	
+
+\subsection*{Day 3: Bayes' Derived and Intro to Priors} (Wed Aug 3, 2016)\\
+\textbf{Reading}: Hobbs and Hooten---Chapter 4-5\\
+\textbf{Lectures}: \\
+(1) Bayes' made simple: Deriving Bayes' theorem (\emph{Hobbs})\\
+(2) Priors distributions I (\emph{Collins}) \\
+\textbf{Labs}: \\
+(1) Write R code for each component for Bayes' Law \\	
+(2) Conjugate priors lab\\
+
+\newpage
+\subsection*{Day 4:  MCMC} (Thurs Aug 4, 2016)\\
+\textbf{Reading}: Hobbs and Hooten---Chapter 7-8\\
+\textbf{Lectures}: \\
+(1) MCMC I: Overview (\emph{Hobbs})\\
+(2) MCMC II: Implementing accept-reject sampling (\emph{Hobbs})\\
+\textbf{Labs}: \\
+(1) Gibbs sampling \\
+(2) Accept-reject sampling \\
+
+\subsection*{Day 5: JAGs} (Fri Aug 5, 2016)\\
+\textbf{Lectures}: \\
+(1) Simple Bayesian Regression (\emph{Che-Castaldo}) \\
+(2) Inference from a single model (\emph{Hobbs})\\
+\textbf{Labs}: \\
+(1) JAGS primer\\
+(2) Islands problem (including breakout regarding consequences of priors on non-linear derived quantities)\\
+
+\subsection*{Day 6: Bayesian Models I} (Sat Aug 6, 2016)\\
+\textbf{Reading}: Hobbs and Hooten---Chapter 6\\
+\textbf{Lectures}: \\
+(1) Hierarchical Models: Group-Level Effects (\emph{Hobbs}) including focus on \emph{vaguely} informative priors.\\
+(2) Overview of Bayesian Hierarchical Models (\emph{Hobbs}) \\
+\textbf{Labs}: \\
+(1) Multi-level model on N\textsubscript{2}O \\
+(2) Commonly encountered problems in analysis\\
+
+\subsection*{Day 7: OFF} (Sun Aug 7, 2016)\\
+ \newpage
+\subsection*{Day 8: Bayesian Models II} (Mon Aug 8, 2016)\\
+\textbf{Reading}: Hobbs and Hooten---Chapter 6\\
+\textbf{Lectures}: \\
+(1) Hierarchical models: Designed Experiments (\emph{Che-Castaldo}) \\
+(2) Hierarchical models: Mixture, zero-inflation and occupancy (\emph{Hobbs})\\
+\textbf{Labs}: \\
+(1) Designed experiments \\
+(2) Swiss birds I: Occupancy modeling\\
+
+\subsection*{Day 9: Bayesian Models III} (Tues Aug 9, 2016)\\
+\textbf{Reading}: Hobbs and Hooten---Chapter 8: Sections 1 and 5; Chapter 9\\
+\textbf{Lectures}: \\
+(1) Model checking (\emph{Hobbs})\\
+(2) Model selection (\emph{Hobbs})\\
+(3) Meta analysis including use of informed priors (\emph{Hobbs}) \\
+\textbf{Labs}: \\
+(1) N\textsubscript{2}O, part II: Model evaluation\\
+(2) Model selection\\
+(3) Meta Analysis \\
+
+\subsection*{Day 10: Dynamic models} (Wed Aug 10, 2016)\\
+\textbf{Lectures}: \\
+(1) Hierarchical Models: Dynamic models (\emph{Hobbs})\\
+\textbf{Labs}: \\
+(1) Lynx: Dynamic models\\
+
+
+\end{document}
