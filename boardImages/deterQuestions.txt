@@ -1,3 +1,7 @@
 1: Write the (a) deterministic model that represents your ideas about the operation of the system you study.
 
 2: List the sources of uncertainty that arise when you bring your model together with data.
+
+
+- inverse logit: g(b,x) = exp(b0 + b1x1 + …)/1 + exp(b0 + b1x1 + …); uncertainty can come from (e.g.) errors in covariates, observation error, other.
+
