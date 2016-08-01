@@ -159,15 +159,17 @@ $(document).ready(function () {
 <ol style="list-style-type: decimal">
 <li><p>Yes: Great! Potentially lend a hand to fellow students.</p></li>
 <li><p>No: go to <a href="https://help.github.com/articles/set-up-git">the git set up page here</a> and pick the appropriate operating system and follow the steps associated with the “Setting up Git” section.</p></li>
+<li><p>Not sure? Open a terminal/bash window and type the command below. If it reports a git installation, you are good to go. Otherwise, go to step 2.</p>
+<pre class="bash"><code>git --version</code></pre>
+<p><br></p></li>
 </ol>
-<p><br></p>
 </div>
 <div id="iii.-initial-clone-of-the-course-repository" class="section level4">
 <h4>III. Initial clone of the course repository</h4>
-<p>Open terminal/bash and navigate to the directory where you would like to hold the course materials. We recommend the root directory but you can put it anywhere. For the rest of this quick intro we will refer to the path where you wish to put the course materials as <code>myPath</code>.</p>
+<p>Open terminal/bash and navigate to the directory where you would like to hold the course materials. If you are not familiar or comfortable using the command line, we <strong>highly</strong> recommend using the root directory. For the rest of this quick intro, we will refer to the path to your root directory as <code>rootPath</code>.</p>
 <ol style="list-style-type: decimal">
 <li><p>To navigate quickly to the root directory type the following terminal/bash window:</p>
-<pre class="bash"><code>cd /myPath</code></pre></li>
+<pre class="bash"><code>cd </code></pre></li>
 <li><p>To clone the course repository into your current directory paste the following into your terminal/bash window:</p>
 <pre class="bash"><code>git clone https://github.com/CCheCastaldo/SESYNCBayes.git</code></pre></li>
 </ol>
@@ -178,8 +180,9 @@ $(document).ready(function () {
 <p>We plan to update the course repository on a regular basis. It is likely that you will need to update your materials several times per day. To do this you will <code>pull</code> a current copy of the repository. To do this:</p>
 <ol style="list-style-type: decimal">
 <li><p>You’ll need to open your terminal/bash.</p></li>
-<li><p>Navigate to the course repository (e.g. on my computer I would accomplish this by typing):</p>
-<pre class="bash"><code>cd /myPath/SESYNCBayes</code></pre></li>
+<li><p>Navigate to the course repository. If this is in your root directory then type:</p>
+<pre class="bash"><code>cd
+cd SESYNCBayes</code></pre></li>
 <li><p>Paste the following into the terminal/bash:</p>
 <pre class="bash"><code>git pull</code></pre></li>
 </ol>
@@ -202,9 +205,17 @@ git pull</code></pre>
 <h4>VI. Install course-specific R package <code>SESYNCBayes</code></h4>
 <p>We have prepared an R package that contains all the data you will need to complete our lab exercises. The package is part of the course materials that you now have on your local machine. You will need to do an initial install of this package and do periodic updates throughout the course. For both the install and update the commands are the same.</p>
 <ol style="list-style-type: decimal">
-<li><p>Run the following line of code in R to install the <code>SESYNCBayes</code> package from source:</p>
-<pre class="bash"><code>install.packages(&quot;myPath/SESYNCBayes/Packages/SESYNCBayes_0.1.0.tar.gz&quot;, repos = NULL, type = &quot;source&quot;)</code></pre></li>
-<li><p>You load the library like any other R library:</p>
+<li><p>You’ll need to open your terminal/bash.</p></li>
+<li><p>Navigate to the course repository. If this is in your root directory then type:</p>
+<pre class="bash"><code>cd
+cd SESYNCBayes</code></pre></li>
+<li><p>Open R from the command line by type.</p>
+<pre class="bash"><code>R</code></pre></li>
+<li><p>Run the following line of code in R to install the <code>SESYNCBayes</code> package from source. You can also install it using the same command directly in RStudio but you will need to write the full path to the file or set the working directory to <code>rootPath/SESYNCBayes</code>.</p>
+<pre class="bash"><code>install.packages(&quot;Packages/SESYNCBayes_0.1.0.tar.gz&quot;, repos = NULL, type = &quot;source&quot;)</code></pre></li>
+<li><p>Exit R by typing.</p>
+<pre class="bash"><code>quit()</code></pre></li>
+<li><p>When working in RStudio you load the library like any other R library:</p>
 <pre class="bash"><code>library(SESYNCBayes)</code></pre></li>
 <li><p>To see the help files for <code>SESYNCBayes</code> type in R:</p>
 <pre class="bash"><code>?SESYNCBayes</code></pre></li>
