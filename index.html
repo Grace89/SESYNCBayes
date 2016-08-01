@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>SESYNCBayes by CCheCastaldo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">SESYNCBayes</h1>
+      <h2 class="project-tagline">Course materials for the SESYNC Bayesian modeling for ecologists and social scientists short course.</h2>
+      <a href="https://github.com/CCheCastaldo/SESYNCBayes" class="btn">View on GitHub</a>
+      <a href="https://github.com/CCheCastaldo/SESYNCBayes/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/CCheCastaldo/SESYNCBayes/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p>Welcome to the SESYNC Bayesian modeling course being held August 1-10 2016 at the National Socio-Environmental Synthesis Center (<a href="https://www.sesync.org">SESYNC</a>) in Annapolis, MD.</p>
+
+<h4>
+<a id="i-motivation" class="anchor" href="#i-motivation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I. Motivation</h4>
+
+<p>To access the course materials you must be able to interact with GitHub and must install our course-specific <code>R</code> package <code>SESYNCBayes</code>. After completing the initial install of these materials, plan on updating throughout the course as add new content or tweak pre-existing material.  Instructions for the initial setup and ongoing updates are below.</p>
+
+<p>A quick note about GitHub: at the heart of GitHub is an open source version control system (VCS) called Git. Git is responsible for everything GitHub-related that happens locally on your computer. There are a few things that you will need to do to get going with git/GitHub.  Mainly, you must create free a GitHub account and get your machine ready to interact with your account.</p>
+
+<h4>
+<a id="ii-create-a-github-account" class="anchor" href="#ii-create-a-github-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>II. Create a GitHub account</h4>
+
+<p>Do you have a GitHub account?</p>
+
+<ol>
+<li><p>Yes: Great! Know your login credentials.</p></li>
+<li><p>No: go to <a href="https://github.com">https://github.com</a> and sign up.</p></li>
+</ol>
+
+<h4>
+<a id="ii-git-install-on-your-machine" class="anchor" href="#ii-git-install-on-your-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>II. Git install on your machine</h4>
+
+<p>Does your computer have git installed?</p>
+
+<ol>
+<li><p>Yes: Great! Potentially lend a hand to fellow students.</p></li>
+<li><p>No: go to <a href="https://help.github.com/articles/set-up-git">the git set up page here</a> and pick the appropriate operating system and follow the steps associated with the "Setting up Git" section.</p></li>
+<li>
+<p>Not sure? Open a terminal/bash window and type the command below. If it reports a git installation, you are good to go. Otherwise, go to step 2.</p>
+
+<div class="highlight highlight-source-shell"><pre>git --version</pre></div>
+</li>
+</ol>
+
+<h4>
+<a id="iii-initial-clone-of-the-course-repository" class="anchor" href="#iii-initial-clone-of-the-course-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>III. Initial clone of the course repository</h4>
+
+<p>Open terminal/bash and navigate to the directory where you would like to hold the course materials. If you are not familiar or comfortable using the command line, we <strong>highly</strong> recommend using the root directory. For the rest of this quick intro, we will refer to the path to your root directory as <code>rootPath</code>.  </p>
+
+<ol>
+<li>
+<p>To navigate quickly to the root directory type the following terminal/bash window:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> </pre></div>
+</li>
+<li>
+<p>To clone the course repository into your current directory paste the following into your terminal/bash window: </p>
+
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/CCheCastaldo/SESYNCBayes.git</pre></div>
+</li>
+</ol>
+
+<h4>
+<a id="iv-ongoing-update-of-course-materials" class="anchor" href="#iv-ongoing-update-of-course-materials" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IV. Ongoing update of course materials</h4>
+
+<p>We plan to update the course repository on a regular basis. It is likely that you will need to update your materials several times per day.  To do this you will <code>pull</code> a current copy of the repository. To do this: </p>
+
+<ol>
+<li><p>You'll need to open your terminal/bash.</p></li>
+<li>
+<p>Navigate to the course repository. If this is in your root directory then type:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span>
+<span class="pl-c1">cd</span> SESYNCBayes</pre></div>
+</li>
+<li>
+<p>Paste the following into the terminal/bash:</p>
+
+<div class="highlight highlight-source-shell"><pre>git pull</pre></div>
+</li>
+</ol>
+
+<h4>
+<a id="v-extremely-important-using-git-course-materials" class="anchor" href="#v-extremely-important-using-git-course-materials" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>V. EXTREMELY IMPORTANT: Using git course materials</h4>
+
+<p>As noted in the previous section, each time you <code>pull</code> and updated version of the course repository your local machine will have a clean (untouched) copy of <strong>all</strong> course materials.  <strong>Therefore, if you modify the course materials it is extremely important that you save your work under a different name.</strong>  If you fail to save your work with a new name, your work will be lost the next time you <code>pull</code> to get the most up-to-date materials. Where you choose to save your work doesn't matter. You can choose a brand new directory or you can save within the directory that you've created for our course <code>SESYNCBayes</code>. </p>
+
+<p>Inevitably, you will make an inadvertent or deliberate change to a file in the course materials. In this case, your <code>pull</code> will fail.  To remedy this:</p>
+
+<ol>
+<li><p>You'll need to open your terminal/bash.</p></li>
+<li>
+<p>Execute the following simple steps one at a time in your terminal/bash:</p>
+
+<div class="highlight highlight-source-shell"><pre>git stash
+git stash drop
+git pull</pre></div>
+</li>
+</ol>
+
+<h4>
+<a id="vi-install-course-specific-r-package-sesyncbayes" class="anchor" href="#vi-install-course-specific-r-package-sesyncbayes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VI. Install course-specific R package <code>SESYNCBayes</code>
+</h4>
+
+<p>We have prepared an R package that contains all the data you will need to complete our lab exercises.  The package is part of the course materials that you now have on your local machine. You will need to do an initial install of this package and do periodic updates throughout the course. For both the install and update the commands are the same.</p>
+
+<ol>
+<li><p>You'll need to open your terminal/bash.</p></li>
+<li>
+<p>Navigate to the course repository. If this is in your root directory then type:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span>
+<span class="pl-c1">cd</span> SESYNCBayes</pre></div>
+</li>
+<li>
+<p>Open RStudio or R and type:</p>
+
+<div class="highlight highlight-source-shell"><pre>setwd(<span class="pl-s"><span class="pl-pds">"</span>/rootPath/SESYNCBayes<span class="pl-pds">"</span></span>)</pre></div>
+</li>
+<li>
+<p>Run the following line of code in R to install the <code>SESYNCBayes</code> package from source. </p>
+
+<div class="highlight highlight-source-shell"><pre>install.packages(<span class="pl-s"><span class="pl-pds">"</span>Packages/SESYNCBayes_0.1.0.tar.gz<span class="pl-pds">"</span></span>, repos = NULL, <span class="pl-c1">type</span> = <span class="pl-s"><span class="pl-pds">"</span>source<span class="pl-pds">"</span></span>)</pre></div>
+</li>
+<li>
+<p>When working in RStudio you load the library like any other R library:</p>
+
+<div class="highlight highlight-source-shell"><pre>library(SESYNCBayes)</pre></div>
+</li>
+<li>
+<p>To see the help files for <code>SESYNCBayes</code> type in R:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">?</span>SESYNCBayes</pre></div>
+</li>
+</ol>
+
+<h4>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h4>
+
+<p>Mary Collins (@dmbcolli), Tom Hobbs (<a href="https://github.com/nthobbs50" class="user-mention">@nthobbs50</a>), and Christian Che-Castaldo (<a href="https://github.com/CCheCastaldo" class="user-mention">@CCheCastaldo</a>) are responsible for the materials on this website. </p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/CCheCastaldo/SESYNCBayes">SESYNCBayes</a> is maintained by <a href="https://github.com/CCheCastaldo">CCheCastaldo</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
