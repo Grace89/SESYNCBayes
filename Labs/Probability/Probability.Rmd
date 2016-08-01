@@ -145,14 +145,12 @@ The probability of a vector of observations $\mathbf{y}$ depends on a vector of 
 $$\Pr\big(\mathbf{y},\mathbf{z},\boldsymbol{\theta}_{d},\boldsymbol{\theta}_{p}, \sigma_{p}, \sigma_{d}\big) = 
 \Pr\big(\mathbf{y} \mid \mathbf{z},\boldsymbol{\theta}_{d}, \sigma_{d} \big)\Pr\big(\mathbf{z} \mid \boldsymbol{\theta}_{p}, \sigma_{p}\big)
 \Pr\big(\boldsymbol{\theta}_{d}\big)\Pr\big(\boldsymbol{\theta}_{p}\big) \Pr\big(\sigma_{d}\big) \Pr\big(\sigma_{p}\big)$$
-<div style="width:200px; height=200px; margin:0 auto;">
+<div style="width:500px; height=500px; margin:0 auto;">
 <center>
 ![](dag6.png)
 </center>
 </div>
 </div>
-
-<br>
 
 #### VI. Diamond's pigeons
 
