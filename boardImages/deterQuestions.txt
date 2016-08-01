@@ -1,0 +1,3 @@
+1: Write the (a) deterministic model that represents your ideas about the operation of the system you study.
+
+2: List the sources of uncertainty that arise when you bring your model together with data.
