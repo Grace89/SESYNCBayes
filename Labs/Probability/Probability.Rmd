@@ -1,12 +1,12 @@
 <style>
 
 /* uncomment out this to generate exercise */
-/* .hider {display: none;}  
-/* .hider2 {display: inline;} 
+ .hider {display: none;}  
+ .hider2 {display: inline;} 
 
 /* uncomment out this to generate key */
- .hider {display: inline;}  
-  .hider2 {display: none;}  
+/* .hider {display: inline;}  
+/* .hider2 {display: none;}  
 
 </style>
 
@@ -44,10 +44,10 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE)
 
 # uncomment out this to generate key
- nokey = FALSE; key = TRUE
+# nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
-# nokey = TRUE; key = FALSE
+ nokey = TRUE; key = FALSE
 ```
 
 <br>
@@ -423,7 +423,7 @@ z \sim  \textrm{lognormal}\big(\alpha,\beta\big)\\[1em]
 
 <br>
 
-11. Simulate 10,000 data points from a normal distribution with mean 0 and standard deviation 1 and another 10,000 data points from a log normal distribution with mean 0 and standard deviation 1.  Display side-by-side histograms scaled to the density.  Overlay the probability density function.  Find the mean, the median, and the variance of in each case (hint: use moment matching for the lognormal case). Check your estimates empirically with the simulated data. Repeat with different means and standard deviations of your choice.
+11. Simulate 10,000 data points from a normal distribution with mean 0 and standard deviation 1 and another 10,000 data points from a log normal distribution with location parameter of 0 and a scale parameter of 1.  Display side-by-side histograms scaled to the density.  Overlay the probability density function.  Find the mean, the median, and the variance of in each case (hint: use moment matching for the lognormal case). Check your estimates empirically with the simulated data. Repeat with different means and standard deviations of your choice.
 
 ``` {r, eval = TRUE, echo = key, include = key, fig.width = 10, fig.height = 5, fig.align = 'center'}
 par(mfrow=c(1,2))
@@ -436,7 +436,9 @@ x  <- seq(-4, 4, .01)
 z <- dnorm(x, mean = mean, sd = sd)
 lines(x, z, col = "red", lwd = 2)
 
-log.y <- rlnorm(10000, meanlog = mean, sdlog = sd)
+locationParm <- 0
+scaleParm <- 1
+log.y <- rlnorm(10000, meanlog = locationParm, sdlog = scaleParm)
 hist(log.y, ylim=c(0, .7), breaks = 250, prob = TRUE) 
 log.x <- seq(0, 50, .01)
 z <- dlnorm(log.x, meanlog = mean, sdlog = sd)
