@@ -99,13 +99,17 @@ Let’s think about the columns and the rows.  This is the benefit of this exerc
 
 * Column D contain the squared difference between observations and predictions.
 
-* Column E contains the likelihood, one value for each data point. Assume a normal likelihood function. The Excel formula for this is `=NORMDIST(B2,C2,sigma,FALSE)`.
+* Column E contains the the probability density of the data conditional on $\mu_{i}$, and $\sigma$, one value for each data point. The Excel formula for this is `=NORMDIST(B2,C2,sigma,FALSE)`.
 
 <br>
 
 Answer the following questions before proceeding.
 
-1. What is the relationship between the formula in column E and the normal likelihood function?
+1. What is the relationship between the formula in column E and the normal likelihood function in equation 2?
+
+$$
+L\big(\,\mu_{i},\sigma \mid y_{i}\,\big) = \cfrac{1}{\sigma\sqrt{2\pi}}e^{-\cfrac{\big(y_{i}-\mu_{i}\big)^{2}}{2\sigma^{2}}}\\[2em]
+$$
 
 2. Describe the correspondence between $y_{i}$, $\mu_{i}$, and $\sigma$ in equation 2 and the columns and cells in your spreadsheet.  
 

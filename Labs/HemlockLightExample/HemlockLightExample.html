@@ -189,12 +189,17 @@ MathJax.Hub.Config({
 <li><p>Columns A and B should be easy, these are the data.</p></li>
 <li><p>Column C contains the prediction of your model for each level of light. These predictions depend on the values for <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\gamma\)</span>, and <span class="math inline">\(c\)</span> contained in column I.</p></li>
 <li><p>Column D contain the squared difference between observations and predictions.</p></li>
-<li><p>Column E contains the likelihood, one value for each data point. Assume a normal likelihood function. The Excel formula for this is <code>=NORMDIST(B2,C2,sigma,FALSE)</code>.</p></li>
+<li><p>Column E contains the the probability density of the data conditional on <span class="math inline">\(\mu_{i}\)</span>, and <span class="math inline">\(\sigma\)</span>, one value for each data point. The Excel formula for this is <code>=NORMDIST(B2,C2,sigma,FALSE)</code>.</p></li>
 </ul>
 <p><br></p>
 <p>Answer the following questions before proceeding.</p>
 <ol style="list-style-type: decimal">
-<li><p>What is the relationship between the formula in column E and the normal likelihood function?</p></li>
+<li>What is the relationship between the formula in column E and the normal likelihood function in equation 2?</li>
+</ol>
+<p><span class="math display">\[
+L\big(\,\mu_{i},\sigma \mid y_{i}\,\big) = \cfrac{1}{\sigma\sqrt{2\pi}}e^{-\cfrac{\big(y_{i}-\mu_{i}\big)^{2}}{2\sigma^{2}}}\\[2em]
+\]</span></p>
+<ol start="2" style="list-style-type: decimal">
 <li><p>Describe the correspondence between <span class="math inline">\(y_{i}\)</span>, <span class="math inline">\(\mu_{i}\)</span>, and <span class="math inline">\(\sigma\)</span> in equation 2 and the columns and cells in your spreadsheet.</p></li>
 <li><p>What is the reason for the argument “FALSE” in the Excel formula in column E?</p></li>
 <li><p>What does the function return when that argument is “TRUE”?</p></li>
