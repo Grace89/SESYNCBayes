@@ -62,7 +62,8 @@ To get the most out of this lab, you must think of the specific problems you con
 #### II. Problem
 
 Coates and Burton (1999) studied the influence of light availability on growth rate of species of conifers in northwestern interior cedar-hemlock forests of British Columbia.  They used the model, 
-$$\mu_{i}=\frac{\alpha\big(L_{i}-c\big)}{\frac{\alpha}{\gamma}\big(L_{i}-c\big)},$$
+
+$$\mu_{i}=\cfrac{\alpha\big(L_{i}-c\big)}{\cfrac{\alpha}{\gamma} + \big(L_{i}-c\big)},$$
 
 where:
 
