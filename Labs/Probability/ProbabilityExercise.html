@@ -607,6 +607,29 @@ y_i &amp;\sim&amp; \textrm{gamma}\big(\alpha_i,\beta_i\big)\\
 \end{eqnarray}
 </div>
 <p><br></p>
+<p>The Poisson distribution is often used for count data, despite the fact that one must assume that the mean and variance are equal. The negative binomial distribution is a more robust alternative, allowing the variance to differ from the mean. There are two parameterizations for the negative binomial. The first is more frequently used by ecologists:</p>
+<p><span class="math display">\[
+\big[z\mid\lambda,r\big] = 
+\cfrac{\Gamma\big(z + r\big)}{\Gamma\big(r\big)z!}\Big(\cfrac{r}{r+\lambda}\Big)^r
+\Big(\cfrac{\lambda}{r+\lambda}\Big)^z\textrm{,}
+\]</span></p>
+<p>where <span class="math inline">\(z\)</span> is a discrete random variable, <span class="math inline">\(\lambda\)</span> is the mean of the distribution and <span class="math inline">\(r\)</span> is the <em>dispersion parameter</em>. The variance of <span class="math inline">\(z\)</span> equals <span class="math inline">\(\lambda + \cfrac{\lambda^{2}}{r}\)</span>.</p>
+<p>The second parameterization is more often implemented in coding environments (i.e. JAGS):</p>
+<p><span class="math display">\[
+\big[z \mid r,\phi \big] = \cfrac{\Gamma\big(z+r\big)}{\Gamma\big(r\big)z!}\phi^r\big(1-\phi\big)^z\textrm{,}
+\]</span></p>
+<p>where <span class="math inline">\(z\)</span> is the discrete random variable representing the number of failures that occur in a sequence of Bernoulli trials before <span class="math inline">\(r\)</span> successes are obtained. The parameter <span class="math inline">\(\phi\)</span> is the probability of success on a given trial. Note that <span class="math inline">\(\phi=\cfrac{r}{\big(\lambda+r\big)}\)</span>.</p>
+<ol start="20" style="list-style-type: decimal">
+<li><p>Simulate 100,000 observations from a negative binomial distribution with mean of 100 and variance of 400 using the <strong>first</strong> parameterization that has a mean and a dispersion parameter (remember to moment match).</p></li>
+<li><p>Do the same simulation using the <strong>second</strong> parameterization.</p></li>
+</ol>
+<div class="hider">
+<p>Alternatively,</p>
+</div>
+<ol start="22" style="list-style-type: decimal">
+<li>Plot side-by-side histograms of the simulated data.</li>
+</ol>
+<p><br></p>
 </div>
 </div>
 
