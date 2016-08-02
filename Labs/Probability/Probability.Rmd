@@ -1,12 +1,12 @@
 <style>
 
 /* uncomment out this to generate exercise */
- .hider {display: none;}  
- .hider2 {display: inline;} 
+/* .hider {display: none;}  
+/* .hider2 {display: inline;} 
 
 /* uncomment out this to generate key */
-/* .hider {display: inline;}  
-/*  .hider2 {display: none;}  
+ .hider {display: inline;}  
+  .hider2 {display: none;}  
 
 </style>
 
@@ -44,10 +44,10 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE)
 
 # uncomment out this to generate key
-# nokey = FALSE; key = TRUE
+ nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
- nokey = TRUE; key = FALSE
+# nokey = TRUE; key = FALSE
 ```
 
 <br>
@@ -281,7 +281,7 @@ Random variable  | Distribution | Justification
 The mass of carbon in above ground biomass in square m plot.| gamma or lognormal | Continuous and non-negative
 The number of seals on a haul-out beach in the gulf of AK | Poisson or negative binomial | Counts
 Presence or absence of an invasive species in forest patches | Bernoulli | zero or one
-The probability that a white male will vote republican in a presidential election | Beta | zero to one
+The probability that a white male will vote republican in a presidential election | beta | zero to one
 The number of individuals in four mutually exclusive income categories | multinomial | counts in more than two categories
 The number of diseased individuals in a sample of 100 | binomial | counts in two categories, number of successes on a given number of trials.
 The political party affiliation (democrat, republican, independent) of a voter. | multinomial | counts in more than two categories
