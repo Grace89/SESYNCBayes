@@ -1,12 +1,12 @@
 <style>
 
 /* uncomment out this to generate exercise */
- .hider {display: none;}  
- .hider2 {display: inline;} 
+/* .hider {display: none;}  
+/* .hider2 {display: inline;} 
 
 /* uncomment out this to generate key */
-/* .hider {display: inline;}  
-/* .hider2 {display: none;}  
+ .hider {display: inline;}  
+ .hider2 {display: none;}  
 
 </style>
 
@@ -44,10 +44,10 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE)
 
 # uncomment out this to generate key
-# nokey = FALSE; key = TRUE
+ nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
- nokey = TRUE; key = FALSE
+# nokey = TRUE; key = FALSE
 ```
 
 <br>
@@ -459,7 +459,7 @@ var(log.y)
 
 <br>
 
-12. Existing literature shows that the proportion of habitat patches containing at least one rare plant individual is $\mu = 0.04$ with a standard deviation $\big(\sigma\big)$ of 0.01. Write out a model for the distribution of $\phi$, conditional on $\mu$ and $\sigma$.  
+12. Existing literature shows that the probability a habitat patch is occupied by a rare plant (which we define as $\phi$) has a mean of $\mu = 0.04$ with a standard deviation of $\sigma = .01$. Write out a model for the distribution of $\phi$, conditional on $\mu$ and $\sigma$.  
 
 <div class="hider">
 $$
@@ -497,7 +497,7 @@ plot(x, y,type = 'l', ylab = expression(paste("[",phi,"]")), xlab = expression(p
 
 <br>
 
-14. If you visited 50 patches, what is the probability that 5 would be occupied, conditional on the stated hypothesis $\big(\phi=0.04\big)$? 
+14. If you visited 50 patches, what is the probability that 5 would be occupied, conditional on the hypothesis that $\phi=0.04$? 
 
 <div class="hider">
 $$\Pr(y=5 \mid \phi, n=50) = \textrm{binomial}\big(y=5\mid \phi=0.04,n=50\big) =\binom{50}{5}0.04^5(1-0.04)^{50-5}$$
@@ -512,7 +512,7 @@ dbinom(x = x, p = phi, size = n)
 
 <br>
 
-15. Plot the probability of the data for y = 1...10 occupied patches out of 50 patches visited conditional on the stated hypothesis $\big(\phi=0.04\big)$.
+15. Plot the probability of the data for y = 1...10 occupied patches out of 50 patches visited conditional on the that hypothesis $\phi=0.04$.
 
 ``` {r, eval = TRUE, echo = key, include = key, fig.width = 10, fig.height = 5, fig.align = 'center'}
 x <- seq(0, 10)
@@ -522,7 +522,7 @@ plot(x, y, type = 'h', ylab = expression(paste("Pr(y|",phi,")"),), xlab = expres
 
 <br>
 
-16. What is the probability that at least 5 are occupied, conditional on the stated hypothesis ($\phi=0.04$)?  
+16. What is the probability that at least 5 are occupied, conditional on the hypothesis that $\phi=0.04$?  
 
 <div class="hider">
 \begin{eqnarray}
@@ -540,7 +540,7 @@ n <- 50
 
 <br>
 
-17. Plot the cumulative probability that at least y = 1...10 patches are occupied, conditional on the stated hypothesis ($\phi=0.04$)?  
+17. Plot the cumulative probability that at least y = 1...10 patches are occupied, conditional on the hypothesis that $\phi=0.04$?  
 
 ``` {r, eval = TRUE, echo = key, include = key, fig.width = 7, fig.height = 5, fig.align = 'center'}
 x <- seq(0, 10)
