@@ -135,8 +135,8 @@ MathJax.Hub.Config({
 <div id="estimating-model-parameters-using-maximum-likelihood" class="section level4">
 <h4>Estimating Model Parameters Using Maximum Likelihood</h4>
 </div>
-<div id="july-14-2016" class="section level4">
-<h4>July 14, 2016</h4>
+<div id="august-02-2016" class="section level4">
+<h4>August 02, 2016</h4>
 <hr />
 </div>
 <div id="table-of-contents" class="section level4">
@@ -193,16 +193,10 @@ MathJax.Hub.Config({
 <p><br></p>
 <p>Answer the following questions before proceeding.</p>
 <ol style="list-style-type: decimal">
-<li>What is the relationship between the formula in column E and the normal likelihood function (equation 2)?</li>
-</ol>
-<p><span class="math display">\[
-L\big(\,\mu_{i},\sigma \mid y_{i}\,\big)= \big[\,y_{i} \mid \mu_{i},\sigma\,\big] = \cfrac{1}{\sigma\sqrt{2\pi}}e^{-\cfrac{\big(y_{i}-\mu_{i}\big)^{2}}{2\sigma^{2}}}
-\]</span></p>
-<ol start="2" style="list-style-type: decimal">
+<li><p>What is the relationship between the formula in column E and the normal likelihood function (equation 2)?</p></li>
 <li><p>Describe the correspondence between <span class="math inline">\(y_{i}\)</span>, <span class="math inline">\(\mu_{i}\)</span>, and <span class="math inline">\(\sigma\)</span> in equation 2 and the columns and cells in your spreadsheet.</p></li>
 <li><p>What is the reason for the argument “FALSE” in the Excel formula in column E?</p></li>
 <li><p>What does the function return when that argument is “TRUE”?</p></li>
-<li><p>In your spreadsheet, where do you find the left hand side the normal likelihood function? What is it, strictly speaking?</p></li>
 <li><p>In column F we take the logs of the likelihoods, which are summed in cell K2. If we had not taken the logs and instead, worked directly with the likelihoods, what formula would we use in K2?</p></li>
 <li><p>What are some potential computational problems with using the individual likelihoods rather than the log likelihoods to estimate the total likelihood?</p></li>
 <li><p>Make a plot of the data and the model predictions. Adjust the model parameters by hand until you get a fit that looks reasonable in your plot. This is what will be done in the next step, albeit with a bit more mathematical sophistication.</p></li>
@@ -223,14 +217,14 @@ L\big(\,\mu_{i},\sigma \mid y_{i}\,\big)= \big[\,y_{i} \mid \mu_{i},\sigma\,\big
 </div>
 <p><br></p>
 <p>You will put the cell containing the sum of the log likelihoods in the <strong>Set Objective</strong> field. The cells containing the parameter values will go into the <strong>By Changing Variable Cells</strong> field. Most likely, you will be able to do the exercises without putting constraints on the parameter values if you give them reasonable starting values. However, constraining parameters to reasonable values (e.g., α must be positive and can’t be too large) will prevent numerical errors and speed execution time.</p>
-<ol start="10" style="list-style-type: decimal">
+<ol start="9" style="list-style-type: decimal">
 <li>How might you use the squared error column D to compute <span class="math inline">\(\sigma\)</span>? Make this computation and compare with your maximum likelihood estimate of <span class="math inline">\(\sigma\)</span> obtained using Solver.</li>
 </ol>
 <p><br></p>
 </div>
 <div id="v.-using-r-to-do-the-same-thing" class="section level4">
 <h4>V. Using R to do the same thing</h4>
-<p>Check your results using the nls() function in R, which does non-linear estimation for normally distributed data. Examine the assumption that the model residuals are normally distributed using qqnorm. To speed things along, I have given you the syntax, but for it to be useful to you, you must study it and experiment a bit. In particular, you must do a help on nls and look at its methods—summary, predict, coef, and residuals are illustrated below.</p>
+<p>Check your results using the nls() function in R, which does non-linear estimation for normally distributed data. Examine the assumption that the model residuals are normally distributed using qqnorm. To speed things along, I have given you the syntax, but for it to be useful to you, you must study it and experiment a bit. In particular, you must do a help on nls and look at its methods—summary, predict, coef, and residuals.</p>
 <pre class="r"><code>library(SESYNCBayes)
 plot(HemlockLight$L, HemlockLight$g_rate, ylab = &quot;Growth rate (cm/yr)&quot;, xlab = (&quot;Light Availability&quot;))
 
@@ -251,7 +245,7 @@ lines(x, yhat, col = &quot;red&quot;)</code></pre>
 <div id="vi.-incorporating-prior-information-in-an-mle" class="section level4">
 <h4>VI. Incorporating prior information in an MLE</h4>
 <p>Suppose that a previous study estimated <span class="math inline">\(\alpha\)</span> as 35 with a standard deviation of 4.25. Incorporate these prior data in your new MLE estimate of <span class="math inline">\(\alpha\)</span>. Hint: create a likelihood function for the probability of the new value of <span class="math inline">\(\alpha\)</span> conditional on the previous value and its standard deviation. Take the log of this prior likelihood and add this to the log likelihood of the new value of α given the data. This produces a total log likelihood including the prior and current data.</p>
-<ol start="11" style="list-style-type: decimal">
+<ol start="10" style="list-style-type: decimal">
 <li><p>Describe what happens to the estimate of α relative to the one you obtained earlier. What is going on?</p></li>
 <li><p>What is the effect of increasing the prior standard deviation on the new estimate? What happens when it shrinks?</p></li>
 <li><p>There is a single log likelihood for the prior but the sum of many for the data. This seems “unfair.” Explain how the prior likelihood can overwhelm the data and vice versa.</p></li>

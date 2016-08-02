@@ -106,25 +106,19 @@ Answer the following questions before proceeding.
 
 1. What is the relationship between the formula in column E and the normal likelihood function (equation 2)?
 
-$$
-L\big(\,\mu_{i},\sigma \mid y_{i}\,\big)= \big[\,y_{i} \mid \mu_{i},\sigma\,\big] = \cfrac{1}{\sigma\sqrt{2\pi}}e^{-\cfrac{\big(y_{i}-\mu_{i}\big)^{2}}{2\sigma^{2}}}
-$$
-
 2. Describe the correspondence between $y_{i}$, $\mu_{i}$, and $\sigma$ in equation 2 and the columns and cells in your spreadsheet.  
 
 3. What is the reason for the argument “FALSE” in the Excel formula in column E?  
 
 4. What does the function return when that argument is “TRUE”? 
 
-5. In your spreadsheet, where do you find the left hand side the normal likelihood function?  What is it, strictly speaking?
+5. In column F we take the logs of the likelihoods, which are summed in cell K2.  If we had not taken the logs and instead, worked directly with the likelihoods, what formula would we use in K2?  
 
-6. In column F we take the logs of the likelihoods, which are summed in cell K2.  If we had not taken the logs and instead, worked directly with the likelihoods, what formula would we use in K2?  
+6. What are some potential computational problems with using the individual likelihoods rather than the log likelihoods to estimate the total likelihood? 
 
-7. What are some potential computational problems with using the individual likelihoods rather than the log likelihoods to estimate the total likelihood? 
+7. Make a plot of the data and the model predictions.  Adjust the model parameters by hand until you get a fit that looks reasonable in your plot.  This is what will be done in the next step, albeit with a bit more mathematical sophistication.
 
-8. Make a plot of the data and the model predictions.  Adjust the model parameters by hand until you get a fit that looks reasonable in your plot.  This is what will be done in the next step, albeit with a bit more mathematical sophistication.
-
-9. This model violates a fundamental assumption of traditional regression analysis.  What is that assumption?  How might you fix the problem? (Hint -- Think about what we are assuming about the covariate, light availability.)
+8. This model violates a fundamental assumption of traditional regression analysis.  What is that assumption?  How might you fix the problem? (Hint -- Think about what we are assuming about the covariate, light availability.)
 
 <br>
 
@@ -144,7 +138,7 @@ If you have never used Solver, the main dialog box looks something like this:
 
 You will put the cell containing the sum of the log likelihoods in the **Set Objective** field.  The cells containing the parameter values will go into the **By Changing Variable Cells** field.  Most likely, you will be able to do the exercises without putting constraints on the parameter values if you give them reasonable starting values.  However, constraining parameters to reasonable values (e.g., α must be positive and can’t be too large) will prevent numerical errors and speed execution time.
 
-10. How might you use the squared error column D to compute $\sigma$? Make this computation and compare with your maximum likelihood estimate of $\sigma$ obtained using Solver.
+9. How might you use the squared error column D to compute $\sigma$? Make this computation and compare with your maximum likelihood estimate of $\sigma$ obtained using Solver.
 
 <br>
 
@@ -176,11 +170,11 @@ lines(x, yhat, col = "red")
 
 Suppose that a previous study estimated $\alpha$ as 35 with a standard deviation of 4.25. Incorporate these prior data in your new MLE estimate of $\alpha$. Hint: create a likelihood function for the probability of the new value of $\alpha$ conditional on the previous value and its standard deviation. Take the log of this prior likelihood and add this to the log likelihood of the new value of α given the data. This produces a total log likelihood including the prior and current data. 
 
-11. Describe what happens to the estimate of α relative to the one you obtained earlier. What is going on? 
+10. Describe what happens to the estimate of α relative to the one you obtained earlier. What is going on? 
 
-12. What is the effect of increasing the prior standard deviation on the new estimate? What happens when it shrinks?
+11. What is the effect of increasing the prior standard deviation on the new estimate? What happens when it shrinks?
 
-13.  There is a single log likelihood for the prior but the sum of many for the data. This seems "unfair."  Explain how the prior likelihood can overwhelm the data and vice versa.
+12.  There is a single log likelihood for the prior but the sum of many for the data. This seems "unfair."  Explain how the prior likelihood can overwhelm the data and vice versa.
 
 <br>
 
