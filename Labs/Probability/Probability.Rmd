@@ -1,12 +1,12 @@
 <style>
 
 /* uncomment out this to generate exercise */
-/* .hider {display: none;}  
-/* .hider2 {display: inline;} 
+ .hider {display: none;}  
+ .hider2 {display: inline;} 
 
 /* uncomment out this to generate key */
- .hider {display: inline;}  
- .hider2 {display: none;}  
+/* .hider {display: inline;}  
+/*  .hider2 {display: none;}  
 
 </style>
 
@@ -24,19 +24,19 @@ output: html_document
 
 #### Table of Contents
 
-[I. Motivation][]
+[Motivation][]
 
-[II. Converting DAGs to joint distributions][]
+[Converting DAGs to joint distributions][]
 
-[III. Converting joint distributions to DAGs][]
+[Converting joint distributions to DAGs][]
 
-[IV. Simplifying][]
+[Simplifying][]
 
-[V. Interpreting and factoring][]
+[Interpreting and factoring][]
 
-[VI. Diamond's pigeons][]
+[Diamond's pigeons][]
 
-[VII. Models and Data][]
+[Models and Data][]
 
 ```{r preliminaries, include = FALSE}
 rm(list = ls())
@@ -44,15 +44,15 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE)
 
 # uncomment out this to generate key
- nokey = FALSE; key = TRUE
+# nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
-# nokey = TRUE; key = FALSE
+ nokey = TRUE; key = FALSE
 ```
 
 <br>
 
-#### I. Motivation
+#### Motivation
 
 Bayesian analysis is predicated on the idea that we learn about unobserved quantities from quantities we are able to observe.  All observed quantities (i.e. parameters, latent states, missing data and even the data themselves before they are observed) are treated as random variables in the Bayesian approach.  All Bayesian analysis extends from the laws of probability, that is, from the "mathematics of random variables."
 
@@ -69,7 +69,7 @@ It follows that understanding the laws of probability and statistical distributi
 
 <br>
 
-#### II. Converting DAGs to joint distributions
+#### Converting DAGs to joint distributions
 
 Write out the joint and conditional distributions for the following Bayesian networks. For discrete random variables, $\big[A\big]$ is equivalent to $\Pr\big(A\big)$. For continuous random variables $\big[A\big]$ is the probability density of $A$.
 
@@ -100,7 +100,7 @@ Write out the joint and conditional distributions for the following Bayesian net
 
 <br>
 
-#### III. Converting joint distributions to DAGs
+#### Converting joint distributions to DAGs
 
 Draw Bayesian networks (DAGs) for the joint and conditional distributions below.
 
@@ -124,7 +124,7 @@ Draw Bayesian networks (DAGs) for the joint and conditional distributions below.
   
 <br>
 
-#### IV. Simplifying
+#### Simplifying
 
 Simplify the expression below, given that $z_2$ and $z_3$ are independent random variables. 
 $$ \Pr\big(z_1,z_2,z_3\big)=\Pr\big(z_1\mid z_2,z_3\big)\Pr\big(z_2 \mid z_3\big)\Pr\big(z_3\big)$$
@@ -137,7 +137,7 @@ because $\Pr\big(z_2\mid z_3\big) = \Pr\big(z_2\big)$ if $z_2$ and $z_3$ are ind
 
 <br>
 
-#### V. Interpreting and factoring
+#### Interpreting and factoring
 
 The probability of a vector of observations $\mathbf{y}$ depends on a vector of true ecological states of interest, $\mathbf{z}$, and the parameters in a data model: $\boldsymbol{\theta}_{d}$ and $\sigma_{d}$. The probability of the true states $\mathbf{z}$ depends on the parameters in an ecological process model: $\boldsymbol{\theta}_{p}$ and $\sigma_{p}$. We know that $\boldsymbol{\theta}_{d}$, $\boldsymbol{\theta}_{p}$, $\sigma_{p}$, and $\sigma_{d}$ are all independent.  Write out a factored expression for the joint distribution, $\Pr\big(\mathbf{y},\mathbf{z},\boldsymbol{\theta}_{d},\boldsymbol{\theta}_{p}, \sigma_{p}, \sigma_{d}\big)$. Drawing a Bayesian network will help.
 
@@ -154,7 +154,7 @@ $$\Pr\big(\mathbf{y},\mathbf{z},\boldsymbol{\theta}_{d},\boldsymbol{\theta}_{p},
 
 <br>
 
-#### VI. Diamond's pigeons
+#### Diamond's pigeons
 
 The holy grail in Bayesian analysis is to discover the *marginal posterior distribution* of unobserved quantities (parameters, latent states, missing data, forecasts) from quantities we are able to observe (data).  It follows that we must understand what marginal distributions are.  The following is an example of a discrete case that also exercises your newly gained familiarity with the laws of probability.
 
@@ -245,7 +245,7 @@ $$\Pr\big(R,S\big) = \Pr\big(R\big)\Pr\big(S\big) = \frac{20}{32}\frac{11}{32} =
 
 <br>
 
-#### VII. Models and Data
+#### Models and Data
 
 1. We commonly represent the following general framework for linking models to data:
 
@@ -413,7 +413,7 @@ p.bound[1] - p.bound[2]
 
 When we mention *support* we are referring to the range where all probability or probability density values of the random variable being studied are defined as greater than zero.  In the case of the lognormal distribution, which is particularly useful in ecology, its support is continuous and strictly positive.  Moreover, it is often useful because it is asymmetric, allowing for values that are extreme in the positive direction.  Finally, it is useful for representing products of random variables.  The central limit theorem would predict that the distribution of sums of random variables will be normal, no matter how each is individually distributed. Analogously, products of random variables will be lognormally distributed.
 
-If a random variable is lognormally distributed then the log of that random variable is normally distributed (conversely, if you exponentiate a normal random variable it generates a lognormal random variable).  The first parameter of the lognormal distribution is the mean of the random variable on the log scale and the second parameter is the variance (or sometimes the standard deviation) of the random variable on the log scale. 
+10. If a random variable is lognormally distributed then the log of that random variable is normally distributed (conversely, if you exponentiate a normal random variable it generates a lognormal random variable).  The first parameter of the lognormal distribution is the mean of the random variable on the log scale and the second parameter is the variance (or sometimes the standard deviation) of the random variable on the log scale. 
 
 \begin{eqnarray}
 z \sim  \textrm{lognormal}\big(\alpha,\beta\big)\\[1em]
@@ -423,7 +423,7 @@ z \sim  \textrm{lognormal}\big(\alpha,\beta\big)\\[1em]
 
 <br>
 
-10. Simulate 10,000 data points from a normal distribution with mean 0 and standard deviation 1 and another 10,000 data points from a log normal distribution with mean 0 and standard deviation 1.  Display side-by-side histograms scaled to the density.  Overlay the probability density function.  Find the mean, the median, and the variance of in each case (hint: use moment matching for the lognormal case). Check your estimates empirically with the simulated data. Repeat with different means and standard deviations of your choice.
+11. Simulate 10,000 data points from a normal distribution with mean 0 and standard deviation 1 and another 10,000 data points from a log normal distribution with mean 0 and standard deviation 1.  Display side-by-side histograms scaled to the density.  Overlay the probability density function.  Find the mean, the median, and the variance of in each case (hint: use moment matching for the lognormal case). Check your estimates empirically with the simulated data. Repeat with different means and standard deviations of your choice.
 
 ``` {r, eval = TRUE, echo = key, include = key, fig.width = 10, fig.height = 5, fig.align = 'center'}
 par(mfrow=c(1,2))
@@ -457,238 +457,140 @@ var(log.y)
 
 <br>
 
-11. Existing literature shows that the proportion of habitat patches containing at least one rare plant individual is $\phi=0.04$ with a standard deviation ($\sigma$) of 0.01. 
-
-a. Write out a model predicting the proportion of occupied habitat patches, $y_i$, conditional on $\phi$ and $\sigma$.  
+12. Existing literature shows that the proportion of habitat patches containing at least one rare plant individual is $\phi = 0.04$ with a standard deviation $\big(\sigma\big)$ of 0.01. Write out a model predicting the proportion of occupied habitat patches, $y_{i}$, conditional on $\phi$ and $\sigma$.  
 
 <div class="hider">
 $$
 \begin{align}
-\phi&=0.04 \\
-\sigma&=0.01\\
-\alpha &=\frac{(\phi^2 - \phi^3 - \phi\sigma^2)}{\sigma^2}\\
-\beta &=\frac{(\phi - 2\phi^2 + \phi^3 - \sigma^2 + \phi\sigma^2)}{\sigma^2}\\
-y_i &\propto \operatorname{beta}(\alpha,\beta)
+\alpha &=\cfrac{\big(\phi^2 - \phi^3 - \phi\sigma^2\big)}{\sigma^2}\\
+\beta &=\cfrac{\big(\phi - 2\phi^2 + \phi^3 - \sigma^2 + \phi\sigma^2\big)}{\sigma^2}\\
+y_i &\sim \textrm{beta}\big(\alpha,\beta\big)
 \end{align}
 $$
 </div>
 
-- Plot the probability distribution of $\phi$.  
-    
-<div class="hider">
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=100), fig.widght=6, fig.height=5, fig.align='center', echo=key, include=key}
+<br>
 
-shape_from_stats <- function(mu , sigma){
-          a <-(mu^2-mu^3-mu*sigma^2)/sigma^2
-          b <- (mu-2*mu^2+mu^3-sigma^2+mu*sigma^2)/sigma^2
-         shape_ps <- c(a,b)
-         return(shape_ps)
+13. Plot the probability distribution of $\phi$.  
+    
+``` {r, eval = TRUE, echo = key, include = key, fig.width = 10, fig.height = 5, fig.align = 'center'}
+
+shapeit <- function(mu , sigma){
+  a <- (mu^2 - mu^3 - mu * sigma^2)/sigma^2
+  b <- (mu - 2 * mu^2 + mu^3 - sigma^2 + mu * sigma^2)/sigma^2
+  shape_ps <- c(a, b)
+  return(shape_ps)
 }
 
 phi <- 0.04
 sd <- 0.01
 n <- 50
 
-# calc prior parameters
-b <- shape_from_stats(mu=phi, sigma=sd)
-x <- seq(0,.2,.001)
-y <- dbeta(x,b[1],b[2])
-plot(x,y,type='l', 
-     ylab = expression(paste("P(",phi,")")), 
-     xlab = expression(phi),
-     xlim = c(0,0.1))
-         
+b <- shapeit(mu = phi, sigma = sd)
+x <- seq(0, .2, .001)
+y <- dbeta(x, b[1], b[2])
+
+plot(x, y,type = 'l', ylab = expression(paste("Pr(",phi,")")), xlab = expression(phi), 
+  xlim = c(0, 0.1), lwd = 2)
 ```
-</div>
-    
-- If you visited 50 patches, what is the probability that the first 5 would be occupied, conditional on the stated hypothesis ($\phi=0.04$)? Plot the probability of the data.
+
+<br>
+
+14. If you visited 50 patches, what is the probability that 5 would be occupied, conditional on the stated hypothesis $\big(\phi=0.04\big)$? 
 
 <div class="hider">
-$$
-\begin{align}
-\Pr(y_i=5|\phi,n=50) &= \operatorname{binomial}(y_i=5|\phi=0.04,n=50)\\
-&=\binom{50}{5}0.04^5(1-0.04)^{50-5}\\
-\end{align}
-$$
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=100), fig.widght=6, fig.height=5, fig.align='center', echo=key, include=key}
+$$\Pr(y=5 \mid \phi, n=50) = \textrm{binomial}\big(y=5\mid \phi=0.04,n=50\big) =\binom{50}{5}0.04^5(1-0.04)^{50-5}$$
+</div>
 
-#probability of 5 occupied
+``` {r, eval = TRUE, echo = key, include = key, fig.width = 10, fig.height = 5, fig.align = 'center'}
 x <- 5
 phi <- 0.04
 n <- 50
-
-dbinom(x=x,p=phi,size=n)
-
-#plot the propability of the data
-x <- seq(0,10)
-y <- dbinom(x=x,p=phi,size=n)
-plot(x,y,typ='h',
-     ylab=expression(paste("P(y|",phi,")"),),
-     xlab=expression(y))
-
+dbinom(x = x, p = phi, size = n)
 ```
-</div>
 
-- What is the probability that at least 5 are occupied, conditional on the stated hypothesis ($\phi=0.04$)?  
+<br>
+
+15. Plot the probability of the data for y = 1...10 occupied patches out of 50 patches visited conditional on the stated hypothesis $\big(\phi=0.04\big)$.
+
+``` {r, eval = TRUE, echo = key, include = key, fig.width = 10, fig.height = 5, fig.align = 'center'}
+x <- seq(0, 10)
+y <- dbinom(x = x, p = phi, size = n)
+plot(x, y, type = 'h', ylab = expression(paste("Pr(y|",phi,")"),), xlab = expression(y), lwd = 3, col = "blue")
+```
+
+<br>
+
+16. What is the probability that at least 5 are occupied, conditional on the stated hypothesis ($\phi=0.04$)?  
 
 <div class="hider">
-$$
-\begin{align}
-\Pr(y_i\geq5|\phi,n=50) &= \operatorname{binomial}(y_i\geq5|\phi=0.04,n=50)\\
-&=\Sigma_{{y_i}\in(1,2...5)}\binom{50}{5}0.04^{y_i}(1-0.04)^{50-y_i}\\
-\end{align}
-$$
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=100), fig.widght=6, fig.height=5, fig.align='center', echo=key, include=key}
+\begin{eqnarray}
+\Pr\big(y \geq5 \mid \phi, n=50\big) & = & \textrm{binomial}\big(y \geq5 \mid \phi=0.04,n=50\big)\\[1em]
+&= &\sum_{y_{i}\in(5,6,\ldots,50)}\binom{50}{5}\big(0.04\big)^{\,y_{i}}\big(1-0.04\big)^{50-y_{i}}\\[1em]
+\end{eqnarray}
+</div>
 
-#prob at least 5 occupied
+``` {r, eval = TRUE, echo = key, include = key, fig.width = 10, fig.height = 5, fig.align = 'center'}
 q <- 4
 phi <- 0.04
 n <- 50
-1-pbinom(q=q,p=phi,size=n)
-x <- seq(0,10)
-y <- pbinom(q=x,p=phi,size=n)
-plot(x,y,
-     ylab=expression(paste("P(",Y<=y,"|",phi,")")),
-     xlab=expression(y))
-
+(1 - pbinom(q = q, p = phi, size = n))
 ```
-</div>
 
-- Simulate data for 75 patches (empty patch = 1, occupied patch = 0).
+<br>
+
+17. Plot the cumulative probability that at least y = 1...10 patches are occupied, conditional on the stated hypothesis ($\phi=0.04$)?  
+
+``` {r, eval = TRUE, echo = key, include = key, fig.width = 7, fig.height = 5, fig.align = 'center'}
+x <- seq(0, 10)
+y <- pbinom(q = x, p = phi, size = n)
+plot(x, y, ylab = expression(paste("P(",Y <= y," | ",phi,")")), xlab = expression(y), 
+  pch = 16, col = "red", cex = 1.5)
+```
+
+<br>
+
+18. Simulate data for 75 patches (empty patch = 1, occupied patch = 0).
     
 <div class="hider">
 $$
-\begin{align}
-y_i &\propto \operatorname{binomial}(\phi,1)\text{, which is the same as}\\
-y_i &\propto \operatorname{Bernoulli}(\phi)
-\end{align}
+y \sim \textrm{binomial}(\phi,1) \equiv y \sim \textrm{Bernoulli}(\phi)
 $$
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=100), fig.widght=6, fig.height=5, fig.align='center', echo=key, include=key}
+</div>
 
-#simulate 0-1 data, which is equivalent to Bernoulli since size=1
+``` {r, eval = TRUE, echo = key, include = key}
 n <- 75
 size <- 1
 phi <- 0.04
-
-y.sim <- rbinom(n=n,size=size,prob=phi)
-y.sim
+(ySim <- rbinom(n = n, size = size, prob = phi))
 ```
 </div>
 
-12. The Poisson distribution is often used for count data, despite the fact that one must assume that the mean and variance are equal. The negative binomial distribution is a more robust alternative, allowing the variance to differ from the mean. There are two parameterizations for the negative binomial.  The first is more frequently used by ecologists and the second is more often implemented in coding environments (i.e. JAGS). 
+<br>
 
-$$
-\begin{align}
-[z|\lambda,\kappa] = \frac{\Gamma(z + \kappa)}{\Gamma(\kappa)z!}\Big(\frac{\kappa}{\kappa+\lambda}\Big)^\kappa\Big(\frac{\lambda}{\kappa+\lambda}\Big)^z \\
-\end{align}
-$$
-
-where $z$ is a discrete random variable, $\lambda$ is the mean of the distribution and $\kappa$ is the *dispersion parameter*.
-
-$$
-\begin{align}
-[z|\kappa,\phi] &= \frac{\Gamma(z+\kappa)}{\Gamma(\kappa)z!}\phi^\kappa(1-\phi)^z
-\end{align}
-$$
-
-where $z$ is the random variable representing the number of failures that occur in a sequence of Bernoulli trials before a target number successes, $\kappa$, are obtained. The parameter $\phi$ is the probability of success on a given trial. 
-
-- Simulate 10000 observations from a negative binomial distribution with mean 100 and variance 400 using the first parameterization that has a mean and a dispersion parameter (remember to moment match).
+19. You are modeling the relationship between plant growth rate and soil water. Over the range of soil water from 0.01 to 0.2 gm water/gm soil. There is a linear relationship between growth rate and soil water, $\mu_i = \beta_0 + \beta_1x_i$ with $\beta_0 = 0.01$ and $\beta_1 = 0.09$. Write out the model for the data. Simulate a dataset with 20 observations assuming that the $x$ values vary randomly between 0.01 and 0.2 and the standard deviation on the prediction is 0.03.  You must choose a distribution that assures that a of the simulated data are positive. Plot the data and overlay the generating model.
 
 <div class="hider">
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=100), fig.widght=6, fig.height=5, fig.align='center', echo=key, include=key}
-## r (kappa) is dispersion called "size" in R
-n <- 10000
-lambda <- 100
-sigma <- sqrt(400)
-r <- lambda^2/(sigma^2-lambda)
-z <- rnbinom(n,mu=lambda,size=r)
-mean(z)
-sd(z)
-```
+\begin{eqnarray}
+\mu_i &=& \beta_0 + \beta_1x_1\\
+\alpha_i &=& \cfrac{\mu_i^2}{\sigma^2}\\
+\beta_i &=& \cfrac{\mu_i}{\sigma^2}\\
+y_i &\sim& \textrm{gamma}\big(\alpha_i,\beta_i\big)\\
+\end{eqnarray}
 </div>
 
-- Do the same simulation using the probability using the other parameterization. Note that $\phi=\kappa/(\lambda+\kappa)$
-
-<div class="hider">
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=100), fig.widght=6, fig.height=5, fig.align='center', echo=key, include=key}
-## Parameterized for JAGS using probabilty parameter
-n <- 10000
-lambda <- 100
-sigma <- sqrt(400)
-r <- lambda^2/(sigma^2-lambda)
-z2 <- rnbinom(n,prob=r/(r+lambda),size=r)
-mean(z2)
-sd(z2)
-
-# Alternatively
-lambda <- 100
-r <- lambda^2/(sigma^2-lambda)
-sigma <- sqrt(lambda + lambda^2/r)
-z <- rnbinom(n, mu=lambda, size=r)
-```
-</div>
-
-- Plot side-by-side histograms of the simulated data (Note: R's hist() function isn't well suited for discrete data. Hint: see count() in the plyr package.
-
-<div class="hider">
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=100), fig.widght=6, fig.height=5, fig.align='center', echo=key, include=key}
-## Parameterized for JAGS using probabilty parameter
-n <- 10000
-lambda <- 100
-sigma <- sqrt(400)
-r <- lambda^2/(sigma^2-lambda)
-
-z <- rnbinom(n,mu=lambda,size=r) #first parameterization
-z2 <- rnbinom(n,prob=r/(r+lambda),size=r) #second parameterization
-
-par(mfrow=c(1,2))
-hist(z)
-hist(z2)
-
-library(plyr)
-y <- count(z)
-dens <- y$freq/n
-y <- cbind(y,dens)
-plot(y$x,y$dens, type="h", 
-     ylab="Density",
-     xlab="Value of z",
-     main=paste("n=",n))
-y <- count(z2)
-dens <- y$freq/n
-y <- cbind(y,dens)
-plot(y$x,y$dens, type="h", 
-     ylab="Density",
-     xlab="Value of z",
-     main=paste("n=",n))
-```
-</div>
-
-13. You are modeling the relationship between plant growth rate and soil water. Over the range of soil water from 0.01 to 0.2 gm water/gm soil. There is a linear relationship between growth rate and soil water, $\mu_i = \beta_0 + \beta_1x_i$ with $\beta_0 = 0.01$ and $\beta_1 = 0.09$. Write out the model for the data. Simulate a dataset with 20 observations assuming that the $x$ values vary randomly between 0.01 and 0.2 and the standard deviation on the prediction is 0.03.  You must choose a distribution that assures that a of the simulated data are positive. Plot the data and overlay the generating model.
-
-<div class="hider">
-$$
-\begin{align}
-\mu_i &= \beta_0 + \beta_1x_1\\
-\alpha_i &= \frac{\mu_i^2}{\sigma^2}\\
-\beta_i &= \frac{\mu_i}{\sigma^2}\\
-y_i &\propto \operatorname{gamma}(\alpha_i,\beta_i)
-\end{align}
-$$
-```{r tidy=TRUE, tidy.opts=list(width.cutoff=100), fig.widght=6, fig.height=5, fig.align='center', echo=key, include=key}
-x <- runif(20,0.01,0.2)
-mu <- 0.01 + 0.9*x
+``` {r, eval = TRUE, echo = key, include = key, fig.width = 6, fig.height = 5, fig.align = 'center'}
+x <- runif(20, 0.01, 0.2)
+mu <- 0.01 + 0.9 * x
 sigma <- 0.03
 alpha <- mu^2/sigma^2
 beta <- mu/sigma^2
-y <- rgamma(length(mu), alpha, beta)
-plot(x,y,
-     xlab="Soil Moisture",
-     ylab="Growth Rate")
-lines(x,mu)
-
+y <- rgamma(length(x), alpha, beta)
+plot(x, y, xlab = "Soil Moisture", ylab = "Growth Rate", pch = 16, col = "red", cex = 1.5)
+lines(x, mu, lwd = 2)
 ```
-</div>
+
+<br>
 
 
     
