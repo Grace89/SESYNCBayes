@@ -105,7 +105,7 @@ Let’s think about the columns and the rows.  This is the benefit of this exerc
 
 Answer the following questions before proceeding.
 
-1. What is the relationship between the formula in column E and the normal likelihood function (equation 2)?
+1. What is the relationship between the formula in column E and the normal likelihood function?
 
 2. Describe the correspondence between $y_{i}$, $\mu_{i}$, and $\sigma$ in equation 2 and the columns and cells in your spreadsheet.  
 
