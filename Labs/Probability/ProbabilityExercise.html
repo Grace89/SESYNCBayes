@@ -401,7 +401,7 @@ $(document).ready(function () {
 <p>which represents the probability of obtaining the observation <span class="math inline">\(y_i\)</span> given that our model predicts the mean of a distribution <span class="math inline">\(g\big(\mathbf\theta,x_i\big)\)</span> with variance <span class="math inline">\(\sigma^2\)</span>. Assume we have count data. What distribution would be a logical choice to model these data? Write out a model for the data.</p>
 <div class="hider">
 <p>The Poisson is a logical choice. We predict the mean of the Poisson for each <span class="math inline">\(x_i\)</span>, i.e. <span class="math inline">\(\lambda_i = g\big(\mathbf\theta,x_i\big)\)</span>, which also controls the uncertainty because in the Poisson distribution the variance equals the mean. A model for the data is</p>
-<p><span class="math display">\[ y_i \propto \textrm{Poisson}\big(g\big(\mathbf\theta,x_i\big)\big).\]</span></p>
+<p><span class="math display">\[ y_i \sim \textrm{Poisson}\big(g\big(\mathbf\theta,x_i\big)\big).\]</span></p>
 </div>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
@@ -544,14 +544,14 @@ z \sim  \textrm{lognormal}\big(\alpha,\beta\big)\\[1em]
 </ol>
 <p><br></p>
 <ol start="12" style="list-style-type: decimal">
-<li>Existing literature shows that the proportion of habitat patches containing at least one rare plant individual is <span class="math inline">\(\phi = 0.04\)</span> with a standard deviation <span class="math inline">\(\big(\sigma\big)\)</span> of 0.01. Write out a model predicting the proportion of occupied habitat patches, <span class="math inline">\(y_{i}\)</span>, conditional on <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\sigma\)</span>.</li>
+<li>Existing literature shows that the proportion of habitat patches containing at least one rare plant individual is <span class="math inline">\(\mu = 0.04\)</span> with a standard deviation <span class="math inline">\(\big(\sigma\big)\)</span> of 0.01. Write out a model for the distribution of <span class="math inline">\(\phi\)</span>, conditional on <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</li>
 </ol>
 <div class="hider">
 <p><span class="math display">\[
 \begin{align}
-\alpha &amp;=\cfrac{\big(\phi^2 - \phi^3 - \phi\sigma^2\big)}{\sigma^2}\\
-\beta &amp;=\cfrac{\big(\phi - 2\phi^2 + \phi^3 - \sigma^2 + \phi\sigma^2\big)}{\sigma^2}\\
-y_i &amp;\sim \textrm{beta}\big(\alpha,\beta\big)
+\alpha &amp;=\cfrac{\big(\mu^2 - \mu^3 - \mu\sigma^2\big)}{\sigma^2}\\
+\beta &amp;=\cfrac{\big(\mu - 2\mu^2 + \mu^3 - \sigma^2 + \mu\sigma^2\big)}{\sigma^2}\\
+\phi &amp;\sim \textrm{beta}\big(\alpha,\beta\big)
 \end{align}
 \]</span></p>
 </div>

@@ -256,7 +256,7 @@ which represents the probability of obtaining the observation $y_i$ given that o
 <div class="hider">
 The Poisson is a logical choice. We predict the mean of the Poisson for each $x_i$, i.e. $\lambda_i = g\big(\mathbf\theta,x_i\big)$, which also controls the uncertainty because in the Poisson distribution the variance equals the mean.  A model for the data is 
 
-$$ y_i \propto \textrm{Poisson}\big(g\big(\mathbf\theta,x_i\big)\big).$$
+$$ y_i \sim \textrm{Poisson}\big(g\big(\mathbf\theta,x_i\big)\big).$$
 </div>
 
 <br>
@@ -459,14 +459,14 @@ var(log.y)
 
 <br>
 
-12. Existing literature shows that the proportion of habitat patches containing at least one rare plant individual is $\phi = 0.04$ with a standard deviation $\big(\sigma\big)$ of 0.01. Write out a model predicting the proportion of occupied habitat patches, $y_{i}$, conditional on $\phi$ and $\sigma$.  
+12. Existing literature shows that the proportion of habitat patches containing at least one rare plant individual is $\mu = 0.04$ with a standard deviation $\big(\sigma\big)$ of 0.01. Write out a model for the distribution of $\phi$, conditional on $\mu$ and $\sigma$.  
 
 <div class="hider">
 $$
 \begin{align}
-\alpha &=\cfrac{\big(\phi^2 - \phi^3 - \phi\sigma^2\big)}{\sigma^2}\\
-\beta &=\cfrac{\big(\phi - 2\phi^2 + \phi^3 - \sigma^2 + \phi\sigma^2\big)}{\sigma^2}\\
-y_i &\sim \textrm{beta}\big(\alpha,\beta\big)
+\alpha &=\cfrac{\big(\mu^2 - \mu^3 - \mu\sigma^2\big)}{\sigma^2}\\
+\beta &=\cfrac{\big(\mu - 2\mu^2 + \mu^3 - \sigma^2 + \mu\sigma^2\big)}{\sigma^2}\\
+\phi &\sim \textrm{beta}\big(\alpha,\beta\big)
 \end{align}
 $$
 </div>
@@ -484,15 +484,14 @@ shapeit <- function(mu , sigma){
   return(shape_ps)
 }
 
-phi <- 0.04
+mu <- 0.04
 sd <- 0.01
-n <- 50
 
-b <- shapeit(mu = phi, sigma = sd)
+betaParms <- shapeit(mu = mu, sigma = sd)
 x <- seq(0, .2, .001)
-y <- dbeta(x, b[1], b[2])
+y <- dbeta(x, betaParms[1], betaParms[2])
 
-plot(x, y,type = 'l', ylab = expression(paste("Pr(",phi,")")), xlab = expression(phi), 
+plot(x, y,type = 'l', ylab = expression(paste("[",phi,"]")), xlab = expression(phi), 
   xlim = c(0, 0.1), lwd = 2)
 ```
 
