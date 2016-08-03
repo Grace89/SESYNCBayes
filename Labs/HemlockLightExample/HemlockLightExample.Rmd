@@ -115,7 +115,7 @@ Let’s think about the columns and the rows.  This is the benefit of this exerc
 
 Answer the following questions before proceeding.
 
-1. Why aren't the values we provided, $[1,1,1,2]$, very good initial values for finding the MLE for these parameters? How could you improve them?
+1. Why aren't the values we provided, $[1,1,1,2]$, very good initial values for finding the MLE for these parameters using Solver? (Hint: Solver uses a grid search algorithm to accomplish this.) How could you improve them?
 
 2. Adjust the values for $\alpha$, $\gamma$, and $c$ until you get predictions that look reasonable in your plot.  How could we get a better initial value for $\sigma$?
 
