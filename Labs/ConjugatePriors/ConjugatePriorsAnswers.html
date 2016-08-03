@@ -120,10 +120,10 @@ $(document).ready(function () {
 
 <style>
 
-/* uncomment out this to generate key */
+/* uncomment out this to generate exercise */
 /* .hider {display: none;} */
 
-/* uncomment out this to generate exercise */
+/* uncomment out this to generate key */
 .hider {display: inline;}
 
 </style>
@@ -133,8 +133,8 @@ $(document).ready(function () {
 <div id="using-conjugate-priors-lab" class="section level4">
 <h4>Using Conjugate Priors Lab</h4>
 </div>
-<div id="july-28-2016" class="section level4">
-<h4>July 28, 2016</h4>
+<div id="august-03-2016" class="section level4">
+<h4>August 03, 2016</h4>
 <hr />
 </div>
 <div id="table-of-contents" class="section level4">
@@ -168,7 +168,7 @@ $(document).ready(function () {
 </ul>
 <div class="hider">
 \begin{eqnarray}
-\big[\phi \mid y, n\big] &amp; \propto &amp; 
+\big[\phi \mid y \big] &amp; \propto &amp; 
 \textrm{binomial}\big(y\mid\phi,n\big)\,\textrm{beta}\big(\phi\mid \alpha_{prior},\beta_{prior}\big)\\[1em]
 &amp; \propto &amp; \phi^y \big(1-\phi\big)^{n-y}\phi^{\alpha_{prior}-1}\big(1-\phi\big)^{\beta_{prior}-1}\\[1em]
 &amp; \propto &amp; \phi^{\alpha_{prior}+y-1}\big(1-\phi\big)^{\beta_{prior}+n-y-1}\\[1em]
@@ -212,7 +212,7 @@ bounds95</code></pre>
 </ul>
 <div class="hider">
 \begin{eqnarray}
-\big[\phi \mid y, n\big] &amp; \propto &amp; 
+\big[\phi \mid y \big] &amp; \propto &amp; 
 \prod_{i=1}^{100}\textrm{Bernoulli}\big(z_{i}\mid\phi)\,\textrm{beta}\big(\phi\mid \alpha_{prior},\beta_{prior}\big)\\[1em]
 &amp; \propto &amp; \prod_{i=1}^{100}\phi^{z_{i}}\big(1-\phi\big)^{1-z_{i}}\phi^{\alpha_{prior}-1}\big(1-\phi\big)^{\beta_{prior}-1}\\[1em]
 &amp; \propto &amp; \phi^{\alpha_{prior}-1+\sum_{i=1}^{100}z_{i}}\big(1-\phi\big)^{\beta_{prior}-1+\sum_{i=1}^{100}(1 - z_{i})}\\[1em]
