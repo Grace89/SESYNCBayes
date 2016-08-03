@@ -5,3 +5,5 @@
 
 - inverse logit: g(b,x) = exp(b0 + b1x1 + …)/1 + exp(b0 + b1x1 + …); uncertainty can come from (e.g.) errors in covariates, observation error, other.
 
+- 
+
