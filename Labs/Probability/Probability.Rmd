@@ -1,12 +1,12 @@
 <style>
 
 /* uncomment out this to generate exercise */
-/* .hider {display: none;}  
-/* .hider2 {display: inline;} 
+ .hider {display: none;}  
+ .hider2 {display: inline;} 
 
 /* uncomment out this to generate key */
- .hider {display: inline;}  
- .hider2 {display: none;}  
+/* .hider {display: inline;}  
+/* .hider2 {display: none;}  
 
 </style>
 
@@ -44,10 +44,10 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE)
 
 # uncomment out this to generate key
- nokey = FALSE; key = TRUE
+# nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
-# nokey = TRUE; key = FALSE
+ nokey = TRUE; key = FALSE
 ```
 
 <br>
@@ -527,7 +527,7 @@ plot(x, y, type = 'h', ylab = expression(paste("Pr(y|",phi,")"),), xlab = expres
 <div class="hider">
 \begin{eqnarray}
 \Pr\big(y \geq5 \mid \phi, n=50\big) & = & \textrm{binomial}\big(y \geq5 \mid \phi=0.04,n=50\big)\\[1em]
-&= &\sum_{y_{i}\in(5,6,\ldots,50)}\binom{50}{5}\big(0.04\big)^{\,y_{i}}\big(1-0.04\big)^{50-y_{i}}\\[1em]
+&= &\sum_{y_{i}\in(5,6,\ldots,50)}\binom{50}{y_{i}}\big(0.04\big)^{\,y_{i}}\big(1-0.04\big)^{50-y_{i}}\\[1em]
 \end{eqnarray}
 </div>
 
