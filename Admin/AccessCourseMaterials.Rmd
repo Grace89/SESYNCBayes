@@ -111,15 +111,14 @@ We plan to update the course repository on a regular basis. It is likely that yo
 
 As noted in the previous section, each time you ``pull`` and updated version of the course repository your local machine will have a clean (untouched) copy of **all** course materials.  **Therefore, if you modify the course materials it is extremely important that you save your work under a different name.**  If you fail to save your work with a new name, your work will be lost the next time you ``pull`` to get the most up-to-date materials. Where you choose to save your work doesn't matter. You can choose a brand new directory or you can save within the directory that you've created for our course ``SESYNCBayes``. 
 
-Inevitably, you will make an inadvertent or deliberate change to a file in the course materials. In this case, your ``pull`` will fail.  To remedy this:
+Inevitably, you will make an inadvertent or deliberate change to a file in the course materials. In this case, your ``pull`` will fail. To remedy this:
 
 1.  You'll need to open your terminal/bash.
 
 2.  Execute the following simple steps one at a time in your terminal/bash:
 
     ```bash
-    git stash
-    git stash drop
+    git checkout .
     git pull
     ```
 <br>
