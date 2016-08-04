@@ -1,12 +1,12 @@
 <style>
 
 /* uncomment out this to generate exercise */
-/* .hider {display: none;}  
-/* .hider2 {display: inline;} 
+ .hider {display: none;}  
+ .hider2 {display: inline;} 
 
 /* uncomment out this to generate key */
- .hider {display: inline;}  
- .hider2 {display: none;}  
+/* .hider {display: inline;}  
+/* .hider2 {display: none;}  
 
 </style>
 
@@ -75,10 +75,10 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE)
 
 # uncomment out this to generate key
- nokey = FALSE; key = TRUE
+# nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
-# nokey = TRUE; key = FALSE
+ nokey = TRUE; key = FALSE
 
 set.seed(3)
 ```
@@ -136,8 +136,7 @@ Figure 1.  We draw a proposed new value $z_{i}$ from a proposal distribution cen
 
 4. Now we decide which value should be kept in the chain (i.e., become $x_{i+1}$), the old value $\big(x_{i}\big)$ or the shiny new one $\big(z_{i}\big)$. As explained in lecture, we do that with the ratio of the likelihoods multiplied by the priors for each of the two alternatives, $x_{i}$ and $z_{i}$, $$R_i=\cfrac{\big[\textbf{y}\mid z_{i}\big] \big[z_{i}\big]} {\big[ \textbf{y} \mid  x_{i} \big] \big[x_i\big]}.$$ We keep $z_{i}$ (i.e. $x_{i+1}=z_{i}$) with probability $\min \big(R_i,1\big)$ and we keep $x_i$ (i.e. $x_{i+1}=x_i$) with probability $1-\min\big(R_i,1\big)$. When $R_{i} < 1$, you will need to generate a random draw from a uniform distribution defined on (0,1) and compare that value to $R_i$ to accept or reject the proposed value.  
 
-    In practice we will often use this form instead (why?): $$R_1 = \exp
-\big( \log\big(\big[\mathbf{y} \mid z_i\big]\big[z_i\big]\big) - \log\big(\big[\mathbf{y} \mid x_i\big] \big[x_i\big] \big)\textrm{.}$$ 
+    In practice we will often use this form instead (why?): $$R_i = \exp\big( \log\big(\big[\mathbf{y} \mid z_i\big] \big[z_i \big]\big) - \log\big(\big[\mathbf{y} \mid x_i\big] \big[x_i\big] \big)\textrm{.}$$ 
 
 5. Increment $i$ until a large number of samples have been chosen. Return to step 3.  
 
@@ -181,7 +180,7 @@ We suggest using Metropolis-Hastings for everything where Gibbs steps can't be u
 
 #### V. A toolbox for Metropolis-Hastings
 
-Recall code from the light limitation of trees problem that you worked on in the likelihood lab. The deterministic model is $$\mu_{i}=g\big(\alpha,\gamma,c, L_i\big)=\cfrac{\alpha\big(L_i-c\big)} {\cfrac{\alpha}{\gamma} + \big(L_i-c\big)}\textrm{.}$$ We want to approximate the marginal posterior distributions of the parameters $\alpha$, $\gamma$, $c$, and $\sigma$---all of which are continuous and strictly positive. The growth rate is a real number that can be positive or negative. We have no prior knowledge of any parameter.  Note: the light level for the $i_{\textrm{th}}$ tree is notated as $L_i$.  We are assuming it is observed without error. The posterior and joint distribution is: $$\big[\alpha, \gamma,c,\sigma\mid \textbf{y}\big]\propto\prod\limits _{i=1}^n\big[y_i\mid g\big(\alpha,\gamma,c,L_i, \sigma\big) \big]\big[\alpha\big]\big[\gamma\big]\big[c\big]\big[\sigma\big]\textrm{.}$$
+Recall code from the light limitation of trees problem that you worked on in the likelihood lab. The deterministic model is $$\mu_{i}=g\big(\alpha,\gamma,c, L_i\big)=\cfrac{\alpha\big(L_i-c\big)} {\cfrac{\alpha}{\gamma} + \big(L_i-c\big)}\textrm{.}$$ We want to approximate the marginal posterior distributions of the parameters $\alpha$, $\gamma$, $c$, and $\sigma$---all of which are continuous and strictly positive. The growth rate is a real number that can be positive or negative. We have no prior knowledge of any parameter.  Note: the light level for the $i_{\textrm{th}}$ tree is notated as $L_i$.  We are assuming it is observed without error. The posterior and joint distribution is: $$\big[\alpha, \gamma,c,\sigma\mid \textbf{y}\big]\propto\prod\limits _{i=1}^n\big[y_i\mid g\big(\alpha,\gamma,c,L_i,\big),\sigma \big]\big[\alpha\big] \big[\gamma\big] \big[c\big] \big[\sigma\big] \textrm{.}$$
 
 A bit of rationale: you could estimate these parameters in a quick snap with one line of code in R using the ``nls`` function in R. Why bother with the pain of doing it by MCMC: because you can use MCMC for problems that would swiftly bring `nls()` to its knees. In the spirit of walking before running, we will learn MCMC using a simple model, but our learning will allow us to analyze much more complex ones that can be solved virtually no other way. Moreover, as you will see, we will estimate the posterior distribution of some derived parameters, an impossible task with canned routines like ``nls``. Finally, the last time I checked, there was no easy way to get confidence bands on the predictions from ``nls``.
 
