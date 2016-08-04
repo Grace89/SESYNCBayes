@@ -41,10 +41,10 @@ library(actuar)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = TRUE)
 
 # uncomment out this to generate key
-# nokey = FALSE; key = TRUE
+ nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
- nokey = TRUE; key = FALSE
+# nokey = TRUE; key = FALSE
 ```
 
 <br>
@@ -138,7 +138,7 @@ $$[\,\varsigma^{2}\,] = \textrm{inverse gamma}(\,\varsigma^{2} \mid .001, .001\,
 
 ```{r, echo = key, include = key}
 for(t in 2:n.iter){
-	for (j in 1:n.chains){
+  for (j in 1:n.chains){
 		pmean[j, t] = draw_mean(mu_0 = 0, sigma.sq_0 = 1000, varsigma.sq = pvar[j, t - 1], y = y)$z
 		pvar[j, t] = draw_var(alpha_0 =.001, beta_0 = .001, theta = pmean[j ,t], y = y)$z
   }		
