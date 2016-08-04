@@ -1,10 +1,10 @@
 <style>
 
 /* uncomment out this to generate exercise */
-/* .hider {display: none;} */
+ .hider {display: none;} */
 
 /* uncomment out this to generate key */
-.hider {display: inline;}
+/* .hider {display: inline;}
 
 </style>
 
@@ -40,10 +40,10 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE, messages = FALSE)
 
 # uncomment out this to generate key
- nokey = FALSE; key = TRUE
+# nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
-# nokey = TRUE; key = FALSE
+ nokey = TRUE; key = FALSE
 ```
 
 <br>
@@ -69,7 +69,7 @@ You are conducting a political opinion poll and poll a small number of voters at
 
 <div class="hider">
 \begin{eqnarray}
-\big[\phi \mid y \big] & \propto & 
+\big[\phi \mid y, n\big] & \propto & 
 \textrm{binomial}\big(y\mid\phi,n\big)\,\textrm{beta}\big(\phi\mid \alpha_{prior},\beta_{prior}\big)\\[1em]
 & \propto & \phi^y \big(1-\phi\big)^{n-y}\phi^{\alpha_{prior}-1}\big(1-\phi\big)^{\beta_{prior}-1}\\[1em]
 & \propto & \phi^{\alpha_{prior}+y-1}\big(1-\phi\big)^{\beta_{prior}+n-y-1}\\[1em]
@@ -119,7 +119,7 @@ You are conducting a political opinion poll and have data from 100 voters at ran
 
 <div class="hider">
 \begin{eqnarray}
-\big[\phi \mid y \big] & \propto & 
+\big[\phi \mid y, n\big] & \propto & 
 \prod_{i=1}^{100}\textrm{Bernoulli}\big(z_{i}\mid\phi)\,\textrm{beta}\big(\phi\mid \alpha_{prior},\beta_{prior}\big)\\[1em]
 & \propto & \prod_{i=1}^{100}\phi^{z_{i}}\big(1-\phi\big)^{1-z_{i}}\phi^{\alpha_{prior}-1}\big(1-\phi\big)^{\beta_{prior}-1}\\[1em]
 & \propto & \phi^{\alpha_{prior}-1+\sum_{i=1}^{100}z_{i}}\big(1-\phi\big)^{\beta_{prior}-1+\sum_{i=1}^{100}(1 - z_{i})}\\[1em]
@@ -237,10 +237,11 @@ You have collected temperature data on the December solstice for the last 50 yea
 (muPost <-((muPrior/varPrior) + y/varKnown)/((1/varPrior) + (n/varKnown)))
 (varPost <- 1/((1/varPrior) + (n/varKnown)))
 
-prior <- function(x) dnorm(x, muPrior, varPrior)
-post <- function(x) dnorm(x, muPost, varPost)
+prior <- function(x) dnorm(x, muPrior, varPrior^.5)
+post <- function(x) dnorm(x, muPost, varPost^.5)
 
-plot(prior, 0, 60, main = "Normal prior (dash) and normal posterior (red)", xlab = expression(mu), ylab = "Density", lty = 2, ylim = c(0,0.1), lwd = 2)
+plot(prior, 0, 60, main = "Normal prior (dash) and normal posterior (red)", xlab = expression(mu), 
+  ylab = "Density", lty = 2, ylim = c(0, 0.2), lwd = 2)
 plot(post, 0, 60, add = TRUE, col = "red", lwd = 2)
 ```
 
