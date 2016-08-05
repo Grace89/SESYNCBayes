@@ -299,7 +299,7 @@ plot(density(df$K), main = "", xlim=c(800, 2000), xlab = "K")
 # Find the probability that the parameter K exceeds 1600
 1 - ecdf(df$K)(1600)
 # Find the probability that the parameter 1000 < K < 1300 
-ecdf(df$K)(1200) - ecdf(df$K)(800)
+ecdf(df$K)(1300) - ecdf(df$K)(1000)
 ```
 
 <br>
