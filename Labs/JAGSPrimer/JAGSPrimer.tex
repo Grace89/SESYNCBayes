@@ -475,7 +475,7 @@ initFunc <- function (){
 return(list(
   K = runif(1, 10, 2000),
   r = runif(1, .1, 2),
-  sigma = runif(1, 1, 80))}
+  sigma = runif(1, 1, 80)))}
 \end{Verbatim}
 
 \noindent We will use this function to automatically provide a different set initial values to each chain in our JAGS model.
@@ -519,13 +519,13 @@ return(list(
 
 # run JAGS model in parallel
 library(parallel)
-set.seed(1)
 detectCores()
 cl <- makeCluster(3) # Here we use three cores
 clusterExport(cl, c("data", "initFunc", "n.adapt", "n.update", "n.iter")) 
 out <- clusterEvalQ(cl, {
   library(rjags)
-  jm = jags.model("LogisticJAGS.R", data = data, inits = initFunc, 
+  set.seed(1)
+  jm = jags.model("LogisticJAGS.R", data = data, inits = initFunc(), 
   n.chains = 1, n.adapt = n.adapt)
   update(jm, n.iter = n.update)
   zmCore = coda.samples(jm, variable.names = c("K", "r", "sigma", "tau"), 
