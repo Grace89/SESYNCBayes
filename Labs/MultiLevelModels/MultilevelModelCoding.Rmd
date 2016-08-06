@@ -68,11 +68,11 @@ You need to load some data and libraries. It is always a good idea to look at th
 library(rjags)
 library(reshape)
 library(ggplot2)
+library(SESYNCBayes)
 set.seed(5)
-y=read.csv("NO_2 emission all data for exercise.csv")
-w=read.csv("Site_level_carbon_data for exercise.csv")
+y=N2OEmission
+w=SiteCarbon
 w$mean=w$mean/100  #transform % to proportion
-y=y[,2:9]
 y.n.sites = length(unique(y$group))
 head(y)
 qplot(n.input, emission, data=y, color =  group)
@@ -258,14 +258,13 @@ gelman.diag(zc.hier1)
 
 ####V. Intercepts vary with carbon level in site soils and slopes vary with fertilizer type
 
-Modify your model to include a co variate at the site level, soil carbon content and allow slopes to vary with fertilizer type as developed in the model writing problem #4.
+Modify your model to include a co variate at the site level, soil carbon content and allow slopes to vary with fertilizer type as developed in the model writing problem #3.
 
 Set up data and initial conditions:
 
 ```{r, include=key, echo=key, eval=key}
 #######Hierarchical model, site level intercept predicted from carbon concentration covariate and slope varying with fertilizer type. 
 
-w=read.csv("Site_level_carbon_data for exercise.csv")
 w$mean=w$mean/100  #transform % to proportion
 data = list(
   y.emission = log(y$emission),
@@ -284,6 +283,7 @@ inits = list(
     beta = rep(.5,y.n.fert),
     sigma = 50,
     sigma.alpha = 10,
+    eta = .2,
     kappa = .5
   ),
   list(
