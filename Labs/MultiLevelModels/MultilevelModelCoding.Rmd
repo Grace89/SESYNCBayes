@@ -55,7 +55,7 @@ knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE, messages = 
 
 
 #### I. Motivation
-Multi-level models are a workhorse for understanding ecological processes because so many problems contain information at nested spatial scales, levels of organization, or categories. This problem will give you practice implementing the math that you wrote down in the model building exercise on N~2~O emissions from agricultural soils.  The deterministic models that we will use here are linear, but the approach applies equally well to non-linear forms. The data set that you will analyze is described in the companion document `Multi-level model exercise.pdf`.
+Multi-level models are a workhorse for understanding ecological processes because so many problems contain information at nested spatial scales, levels of organization, or categories. This problem will give you practice implementing the math that you wrote down in the model building exercise on N~2~O emissions from agricultural soils.  The deterministic models that we will use here are linear, but the approach applies equally well to non-linear forms. The data set that you will analyze is described in the companion document `MultilevelModelBuildingExercise.pdf`.
 
 #### II. Problem
 You will write JAGS code to implement models of increasing complexity and power.
@@ -64,7 +64,7 @@ You will write JAGS code to implement models of increasing complexity and power.
 You need to load some data and libraries. It is always a good idea to look at the data. Note that the columns `group.index` and `fert.index` contain indices for sites and fertilizer types. 
 
   
-```{r}
+```{r, include=key, echo=key, eval=key}
 library(rjags)
 library(reshape)
 library(ggplot2)
@@ -83,7 +83,7 @@ qplot(n.input, emission, data=y, color =  fertilizer)
 
 We will also need a function to link the sequential indices used in JAGS to the groups (fertilizer and site) in the data.  Understanding how this is done is *critical* to your operational ability to do Bayesian analysis. I will work with you until you get it.
 
-```{r}
+```{r, include=key, echo=key, eval=key}
 group_from_index = function(group, group.index, output ){
   #group is a vector of group names or numbers
   #group.index is vector of sequential indices to group names or numbers.  It is a sequence of integers 1 to length(group)
@@ -103,7 +103,7 @@ group_from_index = function(group, group.index, output ){
 
 #### IV. Pooled model
 Your first task is to write a simple, "pooled" model where you gloss over differences in sites and fertilizer types and lump everything into a set of x & y pairs using the R template provided `NO_2_models_all_data_template.R`. It is imperative that you study the data statement and match the variable names in your JAGS code to the left hand side of the = in the data list.  Call the intercept `alpha`, the slope `beta` and use `sigma` to name the standard deviation in the likelihood.
-```{r}
+```{r, include=key, echo=key, eval=key}
 #very important to study this:
 data = list(
   y.emission = log(y$emission),
@@ -128,7 +128,7 @@ data = list(
 
 Write the code for the model.
 
-```{r, echo=key }
+```{r, include=key, echo=key, eval=key }
 ####Pooled model
 {
 sink("PooledJAGS.R")
@@ -155,7 +155,7 @@ sink()
 
 
 Compile the model and take a look at it: 
-```{r, echo=key}
+```{r, include=key, echo=key, eval=key}
   n.adapt=3000
   n.update=5000
   n.iter= 5000
@@ -166,7 +166,7 @@ jm.pooled = jags.model(file="PooledJAGS.R", data=data, n.adapt = n.adapt, inits=
 
 Now execute the MCMC:
 
-```{r, echo = key}
+```{r, include=key, echo=key, eval=key}
 update(jm.pooled, n.iter = n.update)
 zc.pooled = coda.samples(jm.pooled, variable.names = c("alpha", "beta", "sigma"), n.iter=n.iter)
 zj.pooled = jags.samples(jm.pooled, variable.names = c("alpha", "beta", "sigma"), n.iter=n.iter)
@@ -178,7 +178,7 @@ gelman.diag(zc.pooled)
 #### IV. Intercepts for each site
 Now you will implement the model that allows intercept to vary by group, where each intercept is drawn from a common distribution. Again, I use the template provided. Here are the preliminaries to set up the model:
 
-```{r}
+```{r, include=key, echo=key, eval=key}
 data = list(
   y.emission = log(y$emission),
   y.n.input = log(y$n.input) - mean(log(y$n.input)), #center the data to speed convergence and aid in interpretation. Can recover 0 intercept if needed.
@@ -208,7 +208,7 @@ inits = list(
 
 Write the model code. Note that you may not need to use the sink strcuture if you have JAGS code in a separate file.
 
-```{r, echo=key}
+```{r, include=key, echo=key, eval=key}
 { #note this opening { and the closing } are needed by R markdown but not by R
 ####Hierarchical model, site level intercept, no site covariate
 sink("Hier_1")
@@ -242,7 +242,7 @@ sink()
 
 Compile the model and get coda output. Test for convergence.
 
-```{r, echo=key}
+```{r, include=key, echo=key, eval=key}
 n.update=50000
 n.iter=25000
 
@@ -262,7 +262,7 @@ Modify your model to include a co variate at the site level, soil carbon content
 
 Set up data and initial conditions:
 
-```{r}
+```{r, include=key, echo=key, eval=key}
 #######Hierarchical model, site level intercept predicted from carbon concentration covariate and slope varying with fertilizer type. 
 
 w=read.csv("Site_level_carbon_data for exercise.csv")
@@ -300,7 +300,7 @@ inits = list(
 
 Write the model:
 
-```{r, echo=key}
+```{r, include=key, echo=key, eval=key}
 {
 sink("Hier_2")
 cat("
@@ -346,7 +346,7 @@ sink()
 
 Compile model and get some output:
 
-```{r, echo=key}
+```{r, include=key, echo=key, eval=key}
 n.update=50000
 n.iter=25000
 
@@ -387,7 +387,7 @@ You may not make it all the way through this problem, but it is good to have a w
 
 As usual, we set up data and initial values:
 
-```{r}
+```{r, include=key, echo=key, eval=key}
 data = list(
   y.emission = log(y$emission),
   y.n.input = log(y$n.input)-mean(log(y$n.input)), #center the data to speed convergence and aid in interpretation-- there is no such thing as soil with 0 carbon
@@ -425,7 +425,7 @@ inits = list(
 ```
 
 Now study the code below. There is a vector `B` that contains the mean of the intercept as its first element and the slope as the second element. The means of these elements are `mu.alpha` and `mu.beta` because JAGS will not allow a vector like `B[,1]` on the left hand side of ~.   The slopes and intercepts in the likelihood are random variables drawn from a multivariate normal distribution with coprecision matrix `Tau.B`.  We get `Tau.B` by taking the inverse of the covariance matrix, which we  composed from `sigma.alpha` and `sigma.beta` and their covariances `sigma.alpha*sigam.beta*rho` where `rho` is the correlation between the slop and intercept. 
-```{r}
+```{r, include=key, echo=key, eval=key}
 {
 sink("Hier_3")
 cat("
@@ -468,7 +468,7 @@ sink()
 
 Compile the model and get some output.  Red bars give medians; black lines are 95% credible intervals
 
-```{r}
+```{r, include=key, echo=key, eval=key}
 n.update=50000
 n.iter=10000
 
