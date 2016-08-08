@@ -23,7 +23,7 @@
 
 % Custom commands
 \newif\ifanswers
-%\answerstrue % comment out to hide answers
+\answerstrue % comment out to hide answers
 
 \begin{document}
 \maketitle
@@ -59,7 +59,7 @@ It follows that learning to write proper mathematical and statistical expression
 \end{figure}
 \begin{align*}
 \big[ \bm{z}, \bm{w}, \alpha, \bm{\beta}, \sigma_{p} \mid \bm{y}, \bm{x} \big] \varpropto & \prod^{n}_{i=1} \big[z_{i} \mid g\big( \alpha, \bm{\beta}, w_{i} \big), \sigma^{2}_{p} \big] \big[x_{i} \mid w_{i}, sd^{2}_{x,i} \big] \big[y_{i} \mid z_{i}, sd_{y,i} \big] \\
-& \times \big[z_{i} \big] \big[ w_{i} \big] \big[ \alpha \big] \big[ \beta_{0} \big] \big[ \beta_{1} \big] \big[ \sigma_{p} \big] 
+& \times \big[ w_{i} \big] \big[ \alpha \big] \big[ \beta_{0} \big] \big[ \beta_{1} \big] \big[ \sigma_{p} \big] 
 \end{align*}
 \begin{equation*}
 \begin{aligned}[c]
@@ -70,11 +70,11 @@ It follows that learning to write proper mathematical and statistical expression
 &w_{i} \sim \textrm{gamma} \big(.001, .001) \\
 \end{aligned}\quad\quad\quad
 \begin{aligned}[c]
-&z_{i} \sim \textrm{gamma} \big(.001, .001) \\
 &\alpha \sim \textrm{normal} \big(0, 1000) \\
 &\beta_{1} \sim \textrm{normal} \big(0, 1000) \\
 &\beta_{2} \sim \textrm{normal} \big(0, 1000) \\
-&\sigma_{p} \sim \textrm{uniform} \big(0, 10)
+&\sigma_{p} \sim \textrm{uniform} \big(0, 10) \\
+&\\
 \end{aligned}
 \end{equation*}
 \newpage
