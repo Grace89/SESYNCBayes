@@ -1,10 +1,10 @@
 <style>
 
 /* uncomment out this to generate exercise */
- .hider {display: none;} */
+/* .hider {display: none;} */
 
 /* uncomment out this to generate key */
-/*  .hider {display: inline;}
+  .hider {display: inline;}
 
 </style>
 
@@ -34,10 +34,10 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE)
 
 # uncomment out this to generate key
-# nokey = FALSE; key = TRUE
+ nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
- nokey = TRUE; key = FALSE
+# nokey = TRUE; key = FALSE
 ```
 
 <br>
@@ -127,13 +127,13 @@ library(rjags)
 set.seed(1)
 
 elevation <- scale(SwissBirds$elevation)
-muElevation <- attr(elevation, "scaled:center")
-sdElevation <- attr(elevation, "scaled:scale")
+muElevation <- mean(SwissBirds$elevation)
+sdElevation <- sd(SwissBirds$elevation)
 elevationPredict = (seq(500, 2500, 10) - muElevation)/sdElevation
 
 forestCover <- scale(SwissBirds$forestCover)
-muforestCover <- attr(forestCover, "scaled:center")
-sdforestCover <- attr(forestCover, "scaled:scale")
+muforestCover <- mean(SwissBirds$forestCover)
+sdforestCover <- sd(SwissBirds$forestCover)
 
 inits = list(
   list(z = rep(1, nrow(SwissBirds)), p = runif(1, 0, 1), beta = runif(4, -2, 2)),
@@ -182,8 +182,8 @@ lines(seq(500, 2500, 10), psi[3,], type = "l", lty = "dashed", lwd = 2)
 abline( v = mean(zj$elevationMax), lwd = 2)
 text(1300, .9, "Optimum elevation", cex = .8)
 
-hist(zj$elevationMax, breaks = 100, main = "", xlab = "Elevation (m)", xlim = c(1500, 2500), 
-  freq = FALSE, col = "gray")
+hist(zj$elevationMax, breaks = 500, main = "", xlab = "Elevation (m)", xlim = c(1500, 2500), 
+  freq = FALSE, col = "azure1")
 abline(v = summary(zj$elevationMax, quantile, c(.975))$stat, lty = "dashed", lwd = 2)
 abline(v = summary(zj$elevationMax, quantile, c(.025))$stat, lty = "dashed", lwd = 2)
 ```
