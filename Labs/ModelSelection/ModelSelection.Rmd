@@ -37,10 +37,10 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, warnings = FALSE, tidy = FALSE)
 
 # uncomment out this to generate key
-nokey = FALSE; key = TRUE
+ nokey = FALSE; key = TRUE
 
 # uncomment out this to generate exercise
-#nokey = TRUE; key = FALSE
+# nokey = TRUE; key = FALSE
 ```
 
 <br>
@@ -50,6 +50,8 @@ nokey = FALSE; key = TRUE
 In the first edition of their classic text "Bayesian Data Analysis", Gelman and colleagues wrote an entry in the index: "Model selection: why we don't do it."  The second edition (Gelman et al. 1995) relaxed this a bit by saying "Model selection: why we avoid it."  A reason for this is that Bayesians believe in using prior knowledge in all analyses. One important way that knowledge can enter into a model is by prior information on the mechanistic role of predictor variables.  If we *know* that a predictor has a mechanistic influence on a response, why would we leave it out of a model?
 
 There are occasions where model selection is needed by Bayesians. Widely used methods, AIC and BIC (despite its name!) are not Bayesian but instead are based on maximum likelihood.  In this exercise, you will learn to use Bayesian methods for model selection.  We would use these methods there are no out-of-sample data available for true model validation, the gold standard of model selection, or if computation limitations prevent the use of cross validation, the next best choice when out-of-sample data are not available. 
+
+<br>
 
 ####Problem
 You will model bird species richness in the 50 (actually 49) US states in response to a set of predictor variables, area, mean temperature, and mean precipitation.  Fit the following models and calculate DIC, WAIC, and Dsel (posterior predictive loss criterion) for each. In fitting the models, use a prior mean of 0 and variance of 100 for each regression coefficient.
@@ -65,6 +67,8 @@ You will model bird species richness in the 50 (actually 49) US states in respon
 5. Model 5: Intercept and area and temp as covariates.
 
 See the included file "Model selection math.pdf" for the mathematics standing behind each selection criterion.
+
+<br>
 
 ####Matrix specification of linear models
 Specifying linear models in matrix notation is compact and convenient relative to writing out the full model as a scalar equation when there are several predictor variables.  Consider the the typical, deterministic linear model:
