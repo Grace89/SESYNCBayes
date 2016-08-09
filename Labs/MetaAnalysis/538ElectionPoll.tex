@@ -66,12 +66,17 @@ Nate Silver, who used Bayesian models to accurately predict Barack Obama's 2008 
 
 \ifanswers
 \begin{center}
-if $V_{it} > \frac{N}{2}$ then $Z_{it}=1$ else $Z_{it}=0$
-
-$E_{it} = Z_{it} \times$ the number of electoral votes $= \Sigma_{i=1}^{51} E_{it}$
 
 $\phi_{it}=\cfrac{\alpha_{it}}{\alpha_{it}+\beta_{it}}$
 \vspace{5mm}
+
+$V_{it} = \textrm{binomial}\big(N_{it}, \phi_{it}\big)$
+
+where $N_{it}$ is the number of likely voters in the $i^{th}$ state and the $t^{th}$ week.
+
+if $V_{it} > \frac{N}{2}$ then $Z_{it}=1$ else $Z_{it}=0$
+
+$E_{t} = Z_{it} \times$ the number of electoral votes $= \Sigma_{i=1}^{51} E_{it}$
 
 $H=1$ if $E_{it} \geq 270$, then Clinton wins.
 
